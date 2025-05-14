@@ -28,6 +28,9 @@
     ?>
 
     <form action="add-save.php" method="post" name="formadd" enctype="multipart/form-data" novalidate>
+
+        <input type="file" name="image_path" accept="image/*" required>
+
         <label for="txtitemname">Item Name</label>
         <input type="text" name="item_name" id="txtitemname" value="<?= $vitemname ?>">
 
@@ -39,11 +42,24 @@
 
         <label for="txtlostlocation">Where it was lost</label>
         <select name="lost_location" id="txtstatus">
-            <option value="Main Building" <?= $vlostlocation == "Main Building" ? 'selected' : '' ?>>Main Building</option>
-            <option value="Library" <?= $vlostlocation == "Library" ? 'selected' : '' ?>>Library</option>
-            <option value="Gym" <?= $vlostlocation == "Gym" ? 'selected' : '' ?>>Gym</option>
-            <option value="Canteen" <?= $vlostlocation == "Canteen" ? 'selected' : '' ?>>Canteen</option>
-            <option value="Classroom" <?= $vlostlocation == "Classroom" ? 'selected' : '' ?>>Classroom</option>
+            <option value="Sentrum" <?= $vlostlocation == "Sentrum" ? 'selected' : '' ?>>Sentrum</option>
+        <option value="Capilla" <?= $vlostlocation == "Capilla" ? 'selected' : '' ?>>Capilla</option>
+        <option value="CBEAM Building" <?= $vlostlocation == "CBEAM Building" ? 'selected' : '' ?>>CBEAM Building</option>
+        <option value="Br. Benilde Building" <?= $vlostlocation == "Br. Benilde Building" ? 'selected' : '' ?>>Br. Benilde Building</option>
+        <option value="JRN Building" <?= $vlostlocation == "JRN Building" ? 'selected' : '' ?>>JRN Building</option>
+        <option value="JRF Building" <?= $vlostlocation == "JRF Building" ? 'selected' : '' ?>>JRF Building</option>
+        <option value="Mabini Building" <?= $vlostlocation == "Mabini Building" ? 'selected' : '' ?>>Mabini Building</option>
+        <option value="Retreat Complex" <?= $vlostlocation == "Retreat Complex" ? 'selected' : '' ?>>Retreat Complex</option>
+        <option value="Chez Rafael" <?= $vlostlocation == "Chez Rafael" ? 'selected' : '' ?>>Chez Rafael</option>
+        <option value="LRC" <?= $vlostlocation == "LRC" ? 'selected' : '' ?>>LRC</option>
+        <option value="Jose Diokno Building" <?= $vlostlocation == "Jose Diokno Building" ? 'selected' : '' ?>>Jose Diokno Building</option>
+        <option value="Sports Complex" <?= $vlostlocation == "Sports Complex" ? 'selected' : '' ?>>Sports Complex</option>
+        <option value="Student Center" <?= $vlostlocation == "Student Center" ? 'selected' : '' ?>>Student Center</option>
+        <option value="IT Domain" <?= $vlostlocation == "IT Domain" ? 'selected' : '' ?>>IT Domain</option>
+        <option value="Centen Sports Plaza" <?= $vlostlocation == "Centen Sports Plaza" ? 'selected' : '' ?>>Centen Sports Plaza</option>
+        <option value="Oval" <?= $vlostlocation == "Oval" ? 'selected' : '' ?>>Oval</option>
+        <option value="College Lobby" <?= $vlostlocation == "College Lobby" ? 'selected' : '' ?>>College Lobby</option>
+
         </select>
         
 
@@ -59,7 +75,6 @@
         </div>
     </form>
 </div>
-
 
 <script>
     const dateInput = document.getElementById("txtlostdate");

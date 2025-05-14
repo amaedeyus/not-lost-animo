@@ -34,6 +34,12 @@
 
 <div class="records-container">
         <?php
+
+             // Pagination setup
+            $itemsPerPage = 25;
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $offset = ($currentPage - 1) * $itemsPerPage;
+
             $statusFilter = isset($_GET['status_filter']) ? $_GET['status_filter'] : '';
             $searchQuery = isset($_GET['q']) ? $_GET['q'] : '';
 
@@ -48,15 +54,21 @@
                 $types .= "s";
             }
             if (!empty($searchQuery)) {
-                $sql .= " AND (name LIKE ? OR description LIKE ? OR color LIKE ?)";
+                $sql .= " AND (description LIKE ? OR item_name LIKE ? OR lost_date LIKE ? OR lost_location LIKE ? OR item_index LIKE ?)";
                 $searchWildcard = "%$searchQuery%";
                 $params[] = $searchWildcard;
                 $params[] = $searchWildcard;
                 $params[] = $searchWildcard;
-                $types .= "sss";
+                $params[] = $searchWildcard;
+                $params[] = $searchWildcard;
+                $types .= "sssss";
             }
 
-            $sql .= " ORDER BY submission_index";
+            $sql .= " ORDER BY item_index DESC LIMIT ?, ?";
+            $params[] = $offset;
+            $params[] = $itemsPerPage;
+            $types .= "ii";
+
             $stmt = $conn->prepare($sql);
 
             // Bind parameters dynamically
@@ -77,11 +89,24 @@
 
                         $rawDate = $row['lost_date'];
                         $vlostdate = date("F j, Y", strtotime($rawDate));
+
+                    $vimagepath = htmlspecialchars($row['image_path']);
                         
                     $vlostlocation = htmlspecialchars($row['lost_location']);
                     $vstatus = htmlspecialchars($row['status']);
         ?>
         <div class="record-panel">
+            <div class="img-container">
+            <?php
+                $imageFullPath = 'media/' . $vimagepath;
+                if (!empty($vimagepath) && file_exists($imageFullPath)) {
+                    echo "<img src='{$imageFullPath}' alt='Item Image' style='max-width:200px; display:block; margin-bottom:10px;'>";
+                } else {
+                    echo "<p><em>No image available</em></p>";
+                }
+            ?>
+            </div>
+
             <div><strong>Item:</strong> <?= $vitemindex ?></div>
             <div><strong>Description:</strong> <?= $vdescription ?></div>
             <div><strong>Date Lost:</strong> <?= $vlostdate ?></div>
@@ -95,6 +120,53 @@
         <p>No items found.</p>
     <?php endif; ?>
     </div>
+
+    <!-- Pagination Controls -->
+<?php
+// Get the total number of items
+$totalSql = "SELECT COUNT(*) AS total FROM item_submission WHERE 1=1";
+$totalParams = [];
+$totalTypes = "";
+
+// Apply filters for the total count query
+if (!empty($statusFilter)) {
+    $totalSql .= " AND status = ?";
+    $totalParams[] = $statusFilter;
+    $totalTypes .= "s";
+}
+if (!empty($searchQuery)) {
+    $totalSql .= " AND (description LIKE ? OR item_name LIKE ? OR lost_date LIKE ? OR lost_location LIKE ? OR item_index LIKE ?)";
+    $totalWildcard = "%$searchQuery%";
+    $totalParams[] = $totalWildcard;
+    $totalParams[] = $totalWildcard;
+    $totalParams[] = $totalWildcard;
+    $totalParams[] = $totalWildcard;
+    $totalParams[] = $totalWildcard;
+    $totalTypes .= "sssss";
+}
+
+// Execute total query with filters
+$totalStmt = $conn->prepare($totalSql);
+if (!empty($totalParams)) {
+    $totalStmt->bind_param($totalTypes, ...$totalParams);
+}
+
+$totalStmt->execute();
+$totalResult = $totalStmt->get_result();
+$totalRow = $totalResult->fetch_assoc();
+$totalItems = $totalRow['total'];
+$totalPages = ceil($totalItems / $itemsPerPage);
+
+// Display pagination
+if ($totalPages > 1) {
+    echo '<div class="pagination">';
+    for ($i = 1; $i <= $totalPages; $i++) {
+        echo "<a href='?page=$i" . (isset($_GET['q']) ? '&q=' . urlencode($_GET['q']) : '') . (isset($_GET['status_filter']) ? '&status_filter=' . urlencode($_GET['status_filter']) : '') . "'>$i</a> ";
+    }
+    echo '</div>';
+}
+?>
+
 </div>
 
 
