@@ -22,28 +22,35 @@
     <?php
     $vitemname = "";
     $vdescription = "";
-    $vcolor = "";
-    $vbrand = "";
+    $vlostdate = "";
+    $vlostlocation = "";
     $vstatus = "";
     ?>
 
     <form action="add-save.php" method="post" name="formadd" enctype="multipart/form-data" novalidate>
-        <label for="txtstudentnumber">Item Name</label>
-        <input type="text" name="txtstudentnumber" id="txtstudentnumber" value="<?= $vitemname ?>">
+        <label for="txtitemname">Item Name</label>
+        <input type="text" name="item_name" id="txtitemname" value="<?= $vitemname ?>">
 
-        <label for="txtlastname">Description</label>
-        <input type="text" name="txtlastname" id="txtlastname" value="<?= $vdescription ?>">
+        <label for="txtdescription">Description</label>
+        <input type="text" name="description" id="txtdescription" value="<?= $vdescription ?>">
 
-        <label for="txtfirstname">Color</label>
-        <input type="text" name="txtfirstname" id="txtfirstname" value="<?= $vcolor ?>">
+        <label for="txtlostdate">Date Lost</label>
+        <input type="date" name="lost_date" id="txtlostdate" value="<?= $vlostdate ?>">
 
-        <label for="txtmiddlename">Brand</label>
-        <input type="text" name="txtmiddlename" id="txtmiddlename" value="<?= $vbrand ?>">
+        <label for="txtlostlocation">Where it was lost</label>
+        <select name="lost_location" id="txtstatus">
+            <option value="Main Building" <?= $vlostlocation == "Main Building" ? 'selected' : '' ?>>Main Building</option>
+            <option value="Library" <?= $vlostlocation == "Library" ? 'selected' : '' ?>>Library</option>
+            <option value="Gym" <?= $vlostlocation == "Gym" ? 'selected' : '' ?>>Gym</option>
+            <option value="Canteen" <?= $vlostlocation == "Canteen" ? 'selected' : '' ?>>Canteen</option>
+            <option value="Classroom" <?= $vlostlocation == "Classroom" ? 'selected' : '' ?>>Classroom</option>
+        </select>
+        
 
         <label for="txtstatus">Status</label>
-        <select name="txtstatus" id="txtstatus">
-            <option value="Lost">Lost</option>
-            <option value="Found">Found</option>
+        <select name="status" id="txtstatus">
+            <option value="Lost" <?= $vstatus == "Lost" ? 'selected' : '' ?>>Lost</option>
+            <option value="Found" <?= $vstatus == "Found" ? 'selected' : '' ?>>Found</option>
         </select>
 
         <div class="form-buttons">
@@ -52,6 +59,16 @@
         </div>
     </form>
 </div>
+
+
+<script>
+    const dateInput = document.getElementById("txtlostdate");
+
+    const today = new Date();
+    const minDate = `${today.getFullYear()}-05-15`;
+
+    dateInput.min = minDate;
+</script>
 
 </body>
 </html>

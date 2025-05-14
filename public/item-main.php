@@ -37,7 +37,7 @@
             $statusFilter = isset($_GET['status_filter']) ? $_GET['status_filter'] : '';
             $searchQuery = isset($_GET['q']) ? $_GET['q'] : '';
 
-            $sql = "SELECT * FROM item_description WHERE 1=1";
+            $sql = "SELECT * FROM item_submission WHERE 1=1";
             $params = [];
             $types = "";
 
@@ -56,7 +56,7 @@
                 $types .= "sss";
             }
 
-            $sql .= " ORDER BY item_index DESC";
+            $sql .= " ORDER BY submission_index";
             $stmt = $conn->prepare($sql);
 
             // Bind parameters dynamically
@@ -69,19 +69,26 @@
 
             if ($result->num_rows > 0):
                 while ($row = $result->fetch_assoc()):
-                    $vitemname = htmlspecialchars($row['name']);
-                    $vdescription = htmlspecialchars($row['description']);
-                    $vcolor = htmlspecialchars($row['color']);
-                    $vbrand = htmlspecialchars($row['brand']);
+                    $vitemindex = htmlspecialchars($row['item_index']);
+                    $vitemname = htmlspecialchars($row['item_name']);
+
+                        $fullDescription = htmlspecialchars($row['description']);
+                        $vdescription = mb_strimwidth($fullDescription, 0, 100, '...');
+
+                        $rawDate = $row['lost_date'];
+                        $vlostdate = date("F j, Y", strtotime($rawDate));
+                        
+                    $vlostlocation = htmlspecialchars($row['lost_location']);
                     $vstatus = htmlspecialchars($row['status']);
         ?>
         <div class="record-panel">
-            <div><strong>Item:</strong> <?= $vitemname ?></div>
+            <div><strong>Item:</strong> <?= $vitemindex ?></div>
             <div><strong>Description:</strong> <?= $vdescription ?></div>
-            <div><strong>Color:</strong> <?= $vcolor ?></div>
+            <div><strong>Date Lost:</strong> <?= $vlostdate ?></div>
+            <div><strong>Where it was lost:</strong> <?= $vlostlocation ?></div>
             <div><strong>Status:</strong> <?= $vstatus ?></div>
             <div class="record-buttons">
-                <button class="btn" onclick="window.location.href='delete.php?vid=<?= $vitemname ?>'">View</button>
+                <button class="btn" onclick="window.location.href='delete.php?vid=<?= $vitemindex ?>'">View</button>
             </div>
         </div>
         <?php endwhile; else: ?>

@@ -1,37 +1,20 @@
 <?php
 require("../include/conn.php");
 
-$vitemname=$_POST['txtstudentnumber'];
-$vdescription=$_POST['txtlastname'];
-$vcolor=$_POST['txtfirstname'];
-$vbrand=$_POST['txtmiddlename'];
-$vstatus=$_POST['txtstatus'];
+$vitemname = $_POST['item_name'];
+$vdescription = $_POST['description'];
+$vlostdate = $_POST['lost_date'];
+$vlostlocation = $_POST['lost_location'];
+$vstatus = $_POST['status'];
+$vimagepath = ''; // You can set this if you have a file upload field
 
-$vindex=0;
+$sql = "INSERT INTO item_submission (item_name, description, lost_date, lost_location, image_path, status)
+        VALUES ('$vitemname', '$vdescription', '$vlostdate', '$vlostlocation', '$vimagepath', '$vstatus')";
 
-$sql = "SELECT * FROM item_description ORDER BY item_index";
-        $result = $conn->query($sql);
-        if($result->num_rows > 0) 
-        {
-            while($row = $result->fetch_assoc())
-            {
-                
-                $vindex=$row['item_index'];			
-                
-            }
-        }
-        $vindex=$vindex+1;
-
-$sql="INSERT INTO item_description (name, description, color, brand, image_path, status) VALUES ('$vitemname', '$vdescription', '$vcolor', '$vbrand', '$vimage_path', '$vstatus')";
-if ($conn->query($sql) === TRUE) 
-{
-} 
-else 
-{            
-} 
-
+if ($conn->query($sql) === TRUE) {
+    echo "<script>alert('Item Saved.');</script>";
+    echo "<meta http-equiv='refresh' content='.000001;url=item-main.php' />";
+} else {
+    echo "Error: " . $conn->error;
+}
 ?>
-<script>
-    alert("Item Saved.");								
-</script>
-<meta  http-equiv="refresh" content=".000001;url=item-main.php" />
