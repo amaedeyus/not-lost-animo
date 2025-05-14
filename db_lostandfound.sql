@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 05:31 PM
+-- Generation Time: May 14, 2025 at 07:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -60,6 +60,14 @@ CREATE TABLE `item_description` (
   `image_path` varchar(255) NOT NULL,
   `status` varchar(20) NOT NULL COMMENT 'Status of the item, where it is returned or not'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `item_description`
+--
+
+INSERT INTO `item_description` (`item_index`, `name`, `description`, `color`, `brand`, `image_path`, `status`) VALUES
+(130, 'Phone', 'iphone pro max 1tb pink', 'pink nga diba', 'apple malamang', '', 'Lost'),
+(131, 'ipad', 'mukhang tablet', 'purple sige', 'apple din', '', 'Found');
 
 -- --------------------------------------------------------
 
@@ -328,7 +336,8 @@ ALTER TABLE `programs`
 -- Indexes for table `sections`
 --
 ALTER TABLE `sections`
-  ADD PRIMARY KEY (`section_index`);
+  ADD PRIMARY KEY (`section_index`),
+  ADD KEY `program_fk` (`program_index`);
 
 --
 -- Indexes for table `students`
@@ -358,7 +367,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `item_description`
 --
 ALTER TABLE `item_description`
-  MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- Constraints for dumped tables

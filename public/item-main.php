@@ -7,14 +7,17 @@
     <title>Not Lost Animo</title>
     <link rel="icon" type="image/png" href="media/dlsl.png">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/item-search-heading.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/item-main.css">
 </head>
 <body>
     <header>
         <form action="" method="get" name="formadd" enctype="multipart/form-data" novalidate>
             <input type="search" id="txtsearch" name="q" placeholder="🔍Search..." value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
-    </form>
-        <button class="btn" onclick="window.location.href='add-item.php?vid=<?= $vitemname ?>'">+ Add Item</button>
+        </form>
+        
+        <button type="button" class="btn" onclick="window.location.href='add-item.php'">+ Add Item</button>
+
     </header>
 
 <div class="content">
