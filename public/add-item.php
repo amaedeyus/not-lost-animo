@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert Item</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/add-item.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="css/header.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="css/add-item.css?v=<?= time() ?>">
 </head>
 <body>
 
@@ -16,7 +17,7 @@
 </header>
 
 <div class="form-container">
-    <h2>Insert Item</h2>
+    <h2>Submit a Lost Item</h2>
     <p>Please fill out the item information</p>
 
     <?php
@@ -29,6 +30,7 @@
 
     <form action="add-save.php" method="post" name="formadd" enctype="multipart/form-data" novalidate>
 
+        <label for="image_path">Insert item image:</label>
         <input type="file" name="image_path" accept="image/*" required>
 
         <label for="txtitemname">Item Name</label>

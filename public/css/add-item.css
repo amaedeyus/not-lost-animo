@@ -1,5 +1,5 @@
 .form-container{
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
     background-color: #dff7df;
     width: 450px;
     margin: 60px auto;
@@ -9,18 +9,21 @@
 }
 
 h2{
+    font-family: 'Nunito', sans-serif;
     text-align: center;
     color: #124d2c;
     margin-bottom: 10px;
 }
 
 p{
+    font-family: 'Nunito', sans-serif;
     text-align: center;
     color: #3c5f4b;
     margin-bottom: 30px;
 }
 
 label{
+    font-family: 'Nunito', sans-serif;
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
@@ -55,12 +58,12 @@ select{
 
 input[type="date"]{
     background-color: #fff;
-    border: 2px solid #ccc;
     border-radius: 15px;
     padding: 10px 14px;
     font-size: 16px;
     color: #333;
     width: 100%;
+    border: none;
     box-sizing: border-box;
     outline: none;
     margin-bottom: 15px;
@@ -73,6 +76,7 @@ input[type="date"]{
 
 input[type="submit"],
 .back-button{
+    font-family: 'Nunito', sans-serif;
     padding: 10px 25px;
     border: none;
     border-radius: 30px;
@@ -86,5 +90,34 @@ input[type="submit"],
 
 input[type="submit"]:hover,
 .back-button:hover{
+    background-color: #388E3C;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 15px;
+    background-color: #fff;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
     background-color: #388E3C;
 }
