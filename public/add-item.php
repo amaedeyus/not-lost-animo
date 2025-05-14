@@ -14,6 +14,7 @@
 <body>
 
 <header>
+    <img src="media/logo.png" alt="notlostanimo-logo" class="logo-img">
 </header>
 
 <div class="form-container">
@@ -33,16 +34,16 @@
         <label for="image_path">Insert item image:</label>
         <input type="file" name="image_path" accept="image/*" required>
 
-        <label for="txtitemname">Item Name</label>
+        <label for="txtitemname">Item Name:</label>
         <input type="text" name="item_name" id="txtitemname" value="<?= $vitemname ?>">
 
-        <label for="txtdescription">Description</label>
+        <label for="txtdescription">Description:</label>
         <input type="text" name="description" id="txtdescription" value="<?= $vdescription ?>">
 
-        <label for="txtlostdate">Date Lost</label>
+        <label for="txtlostdate">When you found the item:</label>
         <input type="date" name="lost_date" id="txtlostdate" value="<?= $vlostdate ?>">
 
-        <label for="txtlostlocation">Where it was lost</label>
+        <label for="txtlostlocation">Where you found the item:</label>
         <select name="lost_location" id="txtstatus">
             <option value="Sentrum" <?= $vlostlocation == "Sentrum" ? 'selected' : '' ?>>Sentrum</option>
         <option value="Capilla" <?= $vlostlocation == "Capilla" ? 'selected' : '' ?>>Capilla</option>
@@ -64,13 +65,6 @@
 
         </select>
         
-
-        <label for="txtstatus">Status</label>
-        <select name="status" id="txtstatus">
-            <option value="Lost" <?= $vstatus == "Lost" ? 'selected' : '' ?>>Lost</option>
-            <option value="Found" <?= $vstatus == "Found" ? 'selected' : '' ?>>Found</option>
-        </select>
-
         <div class="form-buttons">
             <input type="submit" value="Save Record" />
             <button type="button" class="back-button" onclick="window.location.href='item-main.php'">Back</button>

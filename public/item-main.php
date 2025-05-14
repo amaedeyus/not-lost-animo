@@ -23,7 +23,7 @@
             </div>
         </form>
         
-        <button type="button" class="add-button" onclick="window.location.href='add-item.php'"><img src="media/add.png">Submit Lost Item</button>
+        <button type="button" class="add-button" onclick="window.location.href='add-item.php'"><img src="media/add.png"> Submit Lost Item</button>
 
     </header>
 

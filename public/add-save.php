@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vdescription = $_POST['description'];
     $vlostdate = $_POST['lost_date'];
     $vlostlocation = $_POST['lost_location'];
-    $vstatus = $_POST['status'];
+    $vstatus = "Lost";
     $vimagepath = '';
 
     if (isset($_FILES['image_path']) && $_FILES['image_path']['error'] === UPLOAD_ERR_OK) {
