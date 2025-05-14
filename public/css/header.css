@@ -1,9 +1,11 @@
 header{
-    background-color: rgb(97, 148, 96);
+    background-color: #3b813e;
+    box-shadow: inset 0px -5px 20px 30px rgba(27, 115, 40, 0.552);
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 25px 45px;
     position: relative;
+    gap:50px;
 }

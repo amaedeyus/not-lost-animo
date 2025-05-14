@@ -5,18 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Lost Animo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="media/dlsl.png">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/item-main.css">
+    <link rel="stylesheet" href="css/base.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="css/header.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="css/item-main.css?v=<?= time() ?>">
 </head>
 <body>
     <header>
+        <img src="media/logo.png" alt="notlostanimo-logo" class="logo-img">
+
         <form action="" method="get" name="formadd" enctype="multipart/form-data" novalidate>
-            <input type="search" id="txtsearch" name="q" placeholder="🔍Search..." value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
+            <div class="search-wrapper">
+                <input type="search" id="txtsearch" name="q" placeholder="Search..." 
+                value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
+                    <button type="submit"><img src="media/search.png"></button>
+            </div>
         </form>
         
-        <button type="button" class="btn" onclick="window.location.href='add-item.php'">+ Add Item</button>
+        <button type="button" class="add-button" onclick="window.location.href='add-item.php'"><img src="media/add.png">Add Item</button>
 
     </header>
 
@@ -100,7 +107,7 @@
             <?php
                 $imageFullPath = 'media/' . $vimagepath;
                 if (!empty($vimagepath) && file_exists($imageFullPath)) {
-                    echo "<img src='{$imageFullPath}' alt='Item Image' style='max-width:200px; display:block; margin-bottom:10px;'>";
+                    echo "<img src='{$imageFullPath}' alt='Item Image' class='item-image'>";
                 } else {
                     echo "<p><em>No image available</em></p>";
                 }

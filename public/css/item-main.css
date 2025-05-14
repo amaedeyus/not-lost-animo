@@ -1,83 +1,155 @@
-.navigation {
-    display: flex;
-    gap: 45px;
+.add-button{
+    font-size: 15px;
+    padding: 15px 20px 15px 20px;
+    border: none;
+    background-color: #4CAF50;
+    box-shadow: inset 0px -10px 15px 1px rgba(27, 115, 40, 0.444);
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: ease 0.3s;
 }
 
-form {
+.add-button:hover{
+    background-color: #62b166;
+}
+
+header img{
+    margin-right: 5px;
+    width: 13px;
+    height: 13px;
+}
+
+.logo-img{
+    height: 60px;
+    width: auto;
+}
+
+form{
     width: 30%;
 }
 
-input[type="search"] {
-    font-size: 15px;
+.search-wrapper{
+    gap:20px;
+    position: relative;
     width: 100%;
-    padding: 10px 30px 10px 30px;
-    border-radius: 20px;
+}
+
+.search-wrapper input[type="search"]{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 35px 15px 35px;
+    border-radius: 25px; /* Right padding for the icon */
+    font-size: 15px;
     border: none;
 }
 
-.content {
+.search-wrapper input[type="search"]:focus{
+    outline: none;
+}
+
+.search-wrapper button{
+    padding: 7px 7px 7px 10px;
+    display: flex;
+    background-color: #4CAF50;
+    box-shadow: inset 0px -5px 5px 1px rgba(27, 115, 40, 0.552);
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transition: ease 0.3s;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.search-wrapper button:hover{
+    background-color: #62b166;
+}
+
+.search-wrapper img{
+    width: 20px;
+    height: 20px;
+}
+
+.content{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 100px auto;
 }
 
-.filter {
+.filter{
     margin-bottom: 20px;
     width: 65%;
     display: flex;
     justify-content: flex-end;
 }
 
-.filter select {
+.filter select{
     width: 13%;
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;
     background-position: right 16px center;
     background-size: 16px 16px;
-    transition: border 0.3s ease;
     padding: 8px 12px;
+    border: none;
     border-radius: 15px;
+    box-shadow: rgba(21, 61, 23, 0.1) 0px 2px 5px;
 }
 
-.records-container {
+.filter select:focus{
+    outline: none;
+}
+
+.records-container{
     justify-content: center;
-    padding: 20px 150px 20px 150px;
+    padding: 40px 150px 40px 150px;
     position: relative;
     width: 65%;
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    background-color: #ccc;
-    border-radius: 5px;
+    background-color: #5b9a5f3b;
+    border-radius: 20px;
 }
 
-.record-panel {
-    color: #19521d;
-    border: 1px solid #ccc;
+.record-panel{
+    color: #163a19;
     border-radius: 8px;
-    padding: 15px;
+    padding: 20px;
     width: 300px;
     display: flex;
     flex-direction: column;
     background-color: #f9f9f9;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 8px rgba(11, 40, 14, 0.138);
 }
 
-.record-panel div {
+.record-panel div{
     margin-bottom: 8px;
 }
 
-.img-container {
+.img-container{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(30, 36, 31, 0.133);
+    border: #cccccc42 1px solid;
 }
 
-.record-buttons {
+.img-container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.record-buttons{
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -85,25 +157,27 @@ input[type="search"] {
     margin-bottom: 10px;
 }
 
-.btn {
+.btn{
+    font-family: 'Nunito', sans-serif;
     padding: 6px 12px;
     border: none;
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 5px;
+    transition: ease 0.3s;
 }
 
-.btn:hover {
+.btn:hover{
     background-color: #388E3C;
 }
 
-.pagination {
+.pagination{
     text-align: center;
     margin-top: 20px;
 }
 
-.pagination a {
+.pagination a{
     display: inline-block;
     padding: 10px 15px;
     margin: 0 5px;
@@ -115,18 +189,18 @@ input[type="search"] {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.pagination a:hover {
+.pagination a:hover{
     background-color: #45a049;
     color: #fff;
 }
 
-.pagination a.active {
+.pagination a.active{
     background-color: #388E3C;
     color: white;
     font-weight: bold;
 }
 
-.pagination a.disabled {
+.pagination a.disabled{
     background-color: #b3e6b3;
     color: #d1d1d1;
     pointer-events: none;
