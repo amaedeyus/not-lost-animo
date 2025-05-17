@@ -120,7 +120,7 @@
             <div><strong>Where it was lost:</strong> <?= $vlostlocation ?></div>
             <div><strong>Status:</strong> <?= $vstatus ?></div>
             <div class="record-buttons">
-                <button class="btn" onclick="window.location.href='delete.php?vid=<?= $vitemindex ?>'">View</button>
+                <button class="btn" onclick="window.location.href='item-view.php?vid=<?= $vitemindex ?>'">View</button>
             </div>
         </div>
         <?php endwhile; else: ?>
