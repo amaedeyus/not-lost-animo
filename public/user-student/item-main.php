@@ -19,7 +19,7 @@
             <div class="search-wrapper">
                 <input type="search" id="txtsearch" name="q" placeholder="Search..." 
                 value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
-                    <button type="submit"><img src="media/search.png"></button>
+                    <button type="submit"><img src="../media/search.png"></button>
             </div>
         </form>
         
