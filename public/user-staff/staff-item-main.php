@@ -52,7 +52,7 @@
             $statusFilter = isset($_GET['status_filter']) ? $_GET['status_filter'] : '';
             $searchQuery = isset($_GET['q']) ? $_GET['q'] : '';
 
-            $sql = "SELECT * FROM item_submission WHERE approved = 1";
+            $sql = "SELECT * FROM item_submission WHERE approved = 1 AND status IN ('Lost', 'Returned')";
             $params = [];
             $types = "";
 
