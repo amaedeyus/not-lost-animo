@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: May 19, 2025 at 04:27 PM
-=======
--- Generation Time: May 19, 2025 at 05:22 PM
->>>>>>> 0230c65e62e3d87b43e5cbdfe3ef77c146007745
+-- Generation Time: May 19, 2025 at 06:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -96,7 +92,9 @@ INSERT INTO `item_submission` (`item_index`, `user_submit_index`, `image_path`, 
 (60, 0, 'logo_example.gif', 'test', 'test', 'Sentrum', '2025-05-22', 0, NULL, 'Lost', 1),
 (61, 0, 'logo_example.gif', 'test', 'test1', 'Sentrum', '2025-05-23', 0, NULL, 'Pending', 0),
 (62, 0, 'logo_example.gif', 'test2', 'test2', 'Mabini Building', '2025-05-15', 0, NULL, 'Pending', 1),
-(63, 0, 'img.png', 'apol', 'apol', 'Retreat Complex', '2025-05-31', 0, NULL, 'Lost', 1);
+(63, 0, 'img.png', 'apol', 'apol', 'Retreat Complex', '2025-05-31', 0, NULL, 'Lost', 1),
+(64, 0, 'image_with_alpha.png', 'test3', 'test3', 'Sentrum', '2025-05-27', 0, NULL, 'Pending', 1),
+(65, 0, 'logo_example.png', 'test4', 'test4', 'Br. Benilde Building', '2025-05-31', 0, NULL, 'Lost', 1);
 
 -- --------------------------------------------------------
 
@@ -213,16 +211,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `item_submission`
 --
 ALTER TABLE `item_submission`
-  MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
-<<<<<<< HEAD
-=======
+  MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
->>>>>>> 0230c65e62e3d87b43e5cbdfe3ef77c146007745
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
