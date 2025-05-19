@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($row['type'] == 'staff') {
                     //staff
                 } else {
-                    header("Location: ../public/item-main.php");
+                    header("Location: ../public/user-student/item-main.php");
                 }
                 exit();
             } else {

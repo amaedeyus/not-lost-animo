@@ -32,15 +32,15 @@ if ($result->num_rows > 0){
     <title>Not Lost Animo</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="media/dlsl.png">
-    <link rel="stylesheet" href="css/base.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="css/header.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="css/item-view.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/base.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/header.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/item-view.css?v=<?= time() ?>">
 
 </head>
 <body>
 
 <header>
-    <img src="media/logo.png" alt="notlostanimo-logo" class="logo-img">
+    <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
 </header>
 
 <div class="container">
@@ -48,7 +48,7 @@ if ($result->num_rows > 0){
 <center>
 <div class="img-container">
     <?php
-        $imageFullPath = 'media/' . $vimagepath;
+        $imageFullPath = '../media/' . $vimagepath;
         if (!empty($vimagepath) && file_exists($imageFullPath)) {
             echo "<img src='{$imageFullPath}' alt='Item Image'>";
         } else {
