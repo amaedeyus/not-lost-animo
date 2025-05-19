@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2025 at 05:04 PM
+-- Generation Time: May 19, 2025 at 05:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -154,7 +154,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_index`, `email`, `password`, `type`, `created_at`) VALUES
-(1, 'lostandfoundstaff@gmail.com', 'stafftoy123', 'staff', '2025-05-19 15:02:25');
+(1, 'nla.staff@dlsl.edu.ph', '$2y$10$QMq1.CKwgrXWMAqv4dmYLODlgSsThqSvNLFsetZ7fBelXoAWop5GC', 'staff', '2025-05-19 15:18:31');
 
 --
 -- Indexes for dumped tables
@@ -210,6 +210,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `item_submission`
   MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
