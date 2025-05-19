@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vimagepath = '';
 
     if (isset($_FILES['image_path']) && $_FILES['image_path']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = 'media/';
+        $uploadDir = '../media/';
         $imageName = basename($_FILES['image_path']['name']);
         $targetPath = $uploadDir . $imageName;
 
