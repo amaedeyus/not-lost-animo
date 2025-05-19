@@ -29,7 +29,7 @@ $stmt->bind_param("ssssss", $vitemname, $vdescription, $vlostdate, $vlostlocatio
 
 if ($stmt->execute()) {
     echo "<script>alert('Item Saved.');</script>";
-    echo "<meta http-equiv='refresh' content='.000001;url=item-main.php' />";
+    echo "<meta http-equiv='refresh' content='.000001;url=staff-item-main.php' />";
 } else {
     echo "Error: " . $stmt->error;
 }

@@ -67,7 +67,7 @@
         
         <div class="form-buttons">
             <input type="submit" value="Save Record" />
-            <button type="button" class="back-button" onclick="window.location.href='item-main.php'">Back</button>
+            <button type="button" class="back-button" onclick="window.location.href='staff-item-main.php'">Back</button>
         </div>
     </form>
 </div>
