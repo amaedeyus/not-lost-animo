@@ -74,13 +74,15 @@ if ($result->num_rows > 0){
         
 
         <label for="txtstatus">Status</label>
-            <select name="status" id="txtstatus">
-                <option value="Approved" <?= $vstatus == "Lost" ? 'selected' : '' ?>>Lost</option>
-                <option value="Returned" <?= $vstatus == "Returned" ? 'selected' : '' ?>>Returned</option>
-            </select>
+        <input readonly type="text" name="status" id="txtstatus" value="<?php echo $vstatus; ?>">
 
-        <div class="form-buttons">  
-            <button type="button" class="back-button" onclick="window.location.href='staff-item-main.php'">Back</button>
+        <div class="form-buttons">
+            <form method="post" action="approve-item.php">
+                <input type="hidden" name="item_index" value="<?= $vitemindex ?>">
+                <button class="btn" class="back-button" type="submit" name="approve">Approve</button>
+            </form>
+
+            <button type="button" class="back-button" onclick="window.location.href='staff-pending-item-main.php'">Back</button>
         </div>
     
 </div>

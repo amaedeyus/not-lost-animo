@@ -23,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
 $sql = "INSERT INTO item_submission (item_name, description, lost_date, lost_location, image_path, status, approved) 
-        VALUES (?, ?, ?, ?, ?, ?, 0)";
+        VALUES (?, ?, ?, ?, ?, ?, 1)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssss", $vitemname, $vdescription, $vlostdate, $vlostlocation, $vimagepath, $vstatus);
 
 if ($stmt->execute()) {
     echo "<script>alert('Item Saved.');</script>";
-    echo "<meta http-equiv='refresh' content='.000001;url=item-main.php' />";
+    echo "<meta http-equiv='refresh' content='.000001;url=staff-item-main.php' />";
 } else {
     echo "Error: " . $stmt->error;
 }

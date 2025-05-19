@@ -8,7 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="media/dlsl.png">
     <link rel="stylesheet" href="css/base.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="css/staff-main.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="css/header.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="css/item-main.css?v=<?= time() ?>">
 </head>
 <body>
     <header>
@@ -22,10 +23,7 @@
             </div>
         </form>
         
-            <div class="header-container">
-                <button type="button" class="add-button" onclick="window.location.href='staff-pending-item-main.php'"><img src="media/search.png"> View Pending Submissions</button>
-                <button type="button" class="add-button" onclick="window.location.href='staff-add-item.php'"><img src="media/add.png"> Submit Lost Item</button>
-            </div>
+        <button type="button" class="add-button" onclick="window.location.href='add-item.php'"><img src="media/add.png"> Submit Lost Item</button>
 
     </header>
 
@@ -122,7 +120,7 @@
             <div><strong>Where it was lost:</strong> <?= $vlostlocation ?></div>
             <div><strong>Status:</strong> <?= $vstatus ?></div>
             <div class="record-buttons">
-                <button class="btn" onclick="window.location.href='staff-item-view.php?vid=<?= $vitemindex ?>'">View</button>
+                <button class="btn" onclick="window.location.href='item-view.php?vid=<?= $vitemindex ?>'">View</button>
             </div>
         </div>
         <?php endwhile; else: ?>

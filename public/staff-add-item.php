@@ -29,7 +29,7 @@
     $vstatus = "";
     ?>
 
-    <form action="add-save.php" method="post" name="formadd" enctype="multipart/form-data" novalidate>
+    <form action="staff-add-save.php" method="post" name="formadd" enctype="multipart/form-data" novalidate>
 
         <label for="image_path">Insert item image:</label>
         <input type="file" name="image_path" accept="image/*" required>

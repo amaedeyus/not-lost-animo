@@ -23,22 +23,13 @@
         </form>
         
             <div class="header-container">
-                <button type="button" class="add-button" onclick="window.location.href='staff-pending-item-main.php'"><img src="media/search.png"> View Pending Submissions</button>
+                <button type="button" class="add-button" onclick="window.location.href='staff-item-main.php'"> View All Items</button>
                 <button type="button" class="add-button" onclick="window.location.href='staff-add-item.php'"><img src="media/add.png"> Submit Lost Item</button>
             </div>
 
     </header>
 
 <div class="content">
-
-    <form action="" method="get" name="filterForm" enctype="multipart/form-data" class="filter" novalidate>
-        <input type="hidden" name="q" value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
-            <select name="status_filter" onchange="this.form.submit()">
-                <option value="">-- Filter by Status --</option>
-                <option value="Lost" <?= (isset($_GET['status_filter']) && $_GET['status_filter'] == 'Lost') ? 'selected' : '' ?>>Lost</option>
-                <option value="Found" <?= (isset($_GET['status_filter']) && $_GET['status_filter'] == 'Found') ? 'selected' : '' ?>>Found</option>
-            </select>
-    </form>
 
 
 <div class="records-container">
@@ -52,7 +43,7 @@
             $statusFilter = isset($_GET['status_filter']) ? $_GET['status_filter'] : '';
             $searchQuery = isset($_GET['q']) ? $_GET['q'] : '';
 
-            $sql = "SELECT * FROM item_submission WHERE approved = 1";
+            $sql = "SELECT * FROM item_submission WHERE approved = 0";
             $params = [];
             $types = "";
 
@@ -122,7 +113,7 @@
             <div><strong>Where it was lost:</strong> <?= $vlostlocation ?></div>
             <div><strong>Status:</strong> <?= $vstatus ?></div>
             <div class="record-buttons">
-                <button class="btn" onclick="window.location.href='staff-item-view.php?vid=<?= $vitemindex ?>'">View</button>
+                <button class="btn" onclick="window.location.href='staff-pending-item-view.php?vid=<?= $vitemindex ?>'">View</button>
             </div>
         </div>
         <?php endwhile; else: ?>

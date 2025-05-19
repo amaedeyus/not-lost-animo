@@ -66,6 +66,23 @@ input[type="text"]{
     margin: 0 10px;
 }
 
+form button{
+    font-family: 'Nunito', sans-serif;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 30px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+form button:hover{
+    background-color: #388E3C;
+}
+
 input[type="submit"]:hover,
 .back-button:hover{
     background-color: #388E3C;
