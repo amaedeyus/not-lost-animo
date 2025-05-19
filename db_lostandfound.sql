@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2025 at 04:27 PM
+-- Generation Time: May 19, 2025 at 05:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,19 +31,6 @@ CREATE TABLE `departments` (
   `dept_index` int(11) NOT NULL,
   `dept_code` varchar(255) DEFAULT NULL,
   `dept_title` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `item_retrieval`
---
-
-CREATE TABLE `item_retrieval` (
-  `submission_index` int(11) NOT NULL,
-  `item_index` int(11) NOT NULL,
-  `user_index` int(11) NOT NULL,
-  `retrieval_date` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -163,6 +150,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_index`, `email`, `password`, `type`, `created_at`) VALUES
+(1, 'lostandfoundstaff@gmail.com', 'stafftoy123', 'staff', '2025-05-19 15:02:25');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -171,14 +165,6 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `departments`
   ADD PRIMARY KEY (`dept_index`);
-
---
--- Indexes for table `item_retrieval`
---
-ALTER TABLE `item_retrieval`
-  ADD PRIMARY KEY (`submission_index`),
-  ADD KEY `fk5` (`item_index`),
-  ADD KEY `fk6` (`user_index`);
 
 --
 -- Indexes for table `item_submission`
