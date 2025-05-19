@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 $host = "localhost";
 $username = "root";
 $password = "";
-$database = "form_builder";
+$database = "db_lostandfound";
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $database);

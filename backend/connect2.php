@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "form_builder";
+$database = "db_lostandfound";
 $username = "root";
 $password = "";
 
