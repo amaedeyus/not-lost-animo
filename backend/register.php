@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (mysqli_query($conn, $sql)) {
         echo "Registration successful!";
-        header("Location: ../public/front-end.html"); // Redirect to login page
+        header("Location: ../public/system-login/front-end.html"); // Redirect to login page
         exit;
     } else {
         echo "Error: " . mysqli_error($conn);

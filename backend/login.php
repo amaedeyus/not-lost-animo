@@ -30,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Redirect users based on role
                 if ($row['type'] == 'staff') {
-                    //staff
+                    header("Location: ../public/user-staff/staff-item-main.php");
                 } else {
-                    header("Location: ../public/item-main.php");
+                    header("Location: ../public/user-student/item-main.php");
                 }
                 exit();
             } else {

@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: May 19, 2025 at 04:27 PM
+=======
+-- Generation Time: May 19, 2025 at 05:22 PM
+>>>>>>> 0230c65e62e3d87b43e5cbdfe3ef77c146007745
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,19 +35,6 @@ CREATE TABLE `departments` (
   `dept_index` int(11) NOT NULL,
   `dept_code` varchar(255) DEFAULT NULL,
   `dept_title` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `item_retrieval`
---
-
-CREATE TABLE `item_retrieval` (
-  `submission_index` int(11) NOT NULL,
-  `item_index` int(11) NOT NULL,
-  `user_index` int(11) NOT NULL,
-  `retrieval_date` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -163,6 +154,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_index`, `email`, `password`, `type`, `created_at`) VALUES
+(1, 'nla.staff@dlsl.edu.ph', '$2y$10$QMq1.CKwgrXWMAqv4dmYLODlgSsThqSvNLFsetZ7fBelXoAWop5GC', 'staff', '2025-05-19 15:18:31');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -171,14 +169,6 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `departments`
   ADD PRIMARY KEY (`dept_index`);
-
---
--- Indexes for table `item_retrieval`
---
-ALTER TABLE `item_retrieval`
-  ADD PRIMARY KEY (`submission_index`),
-  ADD KEY `fk5` (`item_index`),
-  ADD KEY `fk6` (`user_index`);
 
 --
 -- Indexes for table `item_submission`
@@ -224,6 +214,15 @@ ALTER TABLE `users`
 --
 ALTER TABLE `item_submission`
   MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+<<<<<<< HEAD
+=======
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> 0230c65e62e3d87b43e5cbdfe3ef77c146007745
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

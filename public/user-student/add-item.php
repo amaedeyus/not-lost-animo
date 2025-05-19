@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert Item</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="css/header.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="css/add-item.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/base.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/header.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/add-item.css?v=<?= time() ?>">
 </head>
 <body>
 
 <header>
-    <img src="media/logo.png" alt="notlostanimo-logo" class="logo-img">
+    <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
 </header>
 
 <div class="form-container">

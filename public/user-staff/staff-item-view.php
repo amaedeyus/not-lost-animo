@@ -31,16 +31,16 @@ if ($result->num_rows > 0){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Lost Animo</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="media/dlsl.png">
-    <link rel="stylesheet" href="css/base.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="css/header.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="css/item-view.css?v=<?= time() ?>">
+    <link rel="icon" type="image/png" href="../media/dlsl.png">
+    <link rel="stylesheet" href="../css/base.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/header.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/item-view.css?v=<?= time() ?>">
 
 </head>
 <body>
 
 <header>
-    <img src="media/logo.png" alt="notlostanimo-logo" class="logo-img">
+    <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
 </header>
 
 <div class="container">
@@ -48,7 +48,7 @@ if ($result->num_rows > 0){
 <center>
 <div class="img-container">
     <?php
-        $imageFullPath = 'media/' . $vimagepath;
+        $imageFullPath = '../media/' . $vimagepath;
         if (!empty($vimagepath) && file_exists($imageFullPath)) {
             echo "<img src='{$imageFullPath}' alt='Item Image'>";
         } else {
@@ -74,10 +74,13 @@ if ($result->num_rows > 0){
         
 
         <label for="txtstatus">Status</label>
-        <input readonly type="text" name="status" id="txtstatus" value="<?php echo $vstatus; ?>">
+            <select name="status" id="txtstatus">
+                <option value="Approved" <?= $vstatus == "Lost" ? 'selected' : '' ?>>Lost</option>
+                <option value="Returned" <?= $vstatus == "Returned" ? 'selected' : '' ?>>Returned</option>
+            </select>
 
         <div class="form-buttons">  
-            <button type="button" class="back-button" onclick="window.location.href='item-main.php'">Back</button>
+            <button type="button" class="back-button" onclick="window.location.href='staff-item-main.php'">Back</button>
         </div>
     
 </div>
