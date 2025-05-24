@@ -1,15 +1,18 @@
+current item main:
 <?php require("../include/conn.php"); ?>
+<?php require("get-user-info.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Lost Animo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito  :wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../media/dlsl.png">
     <link rel="stylesheet" href="../css/base.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/item-main.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/menu-bar.css?v=<?= time() ?>">
 </head>
 <body>
     <header>
@@ -25,6 +28,16 @@
         
         <button type="button" class="add-button" onclick="window.location.href='add-item.php'"><img src="../media/add.png"> Submit Lost Item</button>
 
+        <!-- User Profile Text (Dynamic) -->
+            <div class="user-profile dropdown" onclick="toggleDropdown()">
+                <span><?= $fullName ?></span>
+            </div>
+
+        <!-- Dropdown Menu -->
+            <div class="dropdown-content" id="dropdownMenu">
+                <a href="profile.php">My Profile</a>
+                <a href="logout.php">Log Out</a>
+            </div>
     </header>
 
 <div class="content">
@@ -176,6 +189,23 @@ if ($totalPages > 1) {
 
 </div>
 
+<script>
+    // Toggle Dropdown Menu
+    function toggleDropdown() {
+        var dropdownMenu = document.getElementById("dropdownMenu");
+        dropdownMenu.classList.toggle("show"); // Show/hide the dropdown
+    }
+
+    // Close dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.closest('.user-profile')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                dropdowns[i].classList.remove('show');
+            }
+        }
+    }
+</script>
 
 
 </body>

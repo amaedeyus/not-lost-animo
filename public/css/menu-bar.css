@@ -1,0 +1,51 @@
+/* === Menu Bar Styles === */
+
+/* User Profile Section */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #1c6e0c; /* Dark green background */
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.user-profile span {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Align to right edge of header */
+    top: 60px; /* Adjust based on your header height */
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Show dropdown when 'show' class is added */
+.dropdown-content.show {
+    display: block !important;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Balance Section */
+.balance-section {
+    background-color: #f4c20d; /* Yellow background for balance */
+    padding: 10px 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
