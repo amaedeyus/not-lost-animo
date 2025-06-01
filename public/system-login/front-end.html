@@ -6,8 +6,83 @@
     <link rel="stylesheet" href="../css/login.css">
     <title>Login Page</title>
     <link rel="icon" type="image/png" href="../media/dlsl.png">
+    <style>
+        .welcome-alert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(243, 255, 243);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .welcome-alert h2 {
+            color: rgb(2, 55, 2);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .welcome-alert p {
+            color: #333;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .welcome-alert .team-member {
+            color: #1c6e0c;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .welcome-alert button {
+            background-color: rgb(79, 189, 156);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        .welcome-alert button:hover {
+            background-color: rgb(36, 154, 118);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
 </head>
 <body>
+    <!-- Welcome Alert -->
+    <div class="overlay" id="overlay"></div>
+    <div class="welcome-alert" id="welcomeAlert">
+        <h2>Welcome to Lost and Found System!</h2>
+        <p><strong>Not Lost Animo</strong> created by:</p>
+        <p class="team-member">Balion, Angel Amaya</p>
+        <p class="team-member">Del Rosario, Renz Andrei</p>
+        <p class="team-member">Doctolero, Lyrus Lei</p>
+        <p class="team-member">Talens, Xyrelle Dominique</p>
+        <button onclick="closeWelcome()">Get Started</button>
+    </div>
+
     <div class="grid">
         <div class="login">
             <div class="login-header">
@@ -40,10 +115,22 @@
                 </a>  
               </form>
             </div>          
-
-
         </div>
         <div class="image"></div>
     </div>
+
+    <script>
+        // Show welcome alert when page loads
+        window.onload = function() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('welcomeAlert').style.display = 'block';
+        }
+
+        // Close welcome alert
+        function closeWelcome() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('welcomeAlert').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
