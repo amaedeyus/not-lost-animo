@@ -22,7 +22,7 @@ npm install express passport passport-google-oauth20 express-session dotenv mysq
 ```
 
 ```bash
-npm node backend/config/auth.js
+node backend/config/auth.js
 ```
 
 ## 📦 Open Browser
