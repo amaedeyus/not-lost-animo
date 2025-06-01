@@ -18,15 +18,16 @@
             width: auto;
         }
 
-        .search-wrapper img {
-            width: 20px;
-            height: 20px;
-        }
-
         .add-button img {
             width: 13px;
             height: 13px;
             margin-right: 5px;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .form-container {
@@ -200,25 +201,11 @@
         .dropdown-content a:hover {
             background-color: #ddd;
         }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
     </style>
 </head>
 <body>
     <header>
         <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
-
-        <form action="" method="get" name="formsearch" enctype="multipart/form-data" novalidate>
-            <div class="search-wrapper">
-                <input type="search" id="txtsearch" name="q" placeholder="Search..." 
-                value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
-                <button type="submit"><img src="../media/search.png"></button>
-            </div>
-        </form>
         
         <div class="header-container">
             <button type="button" class="add-button" onclick="window.location.href='staff-pending-item-main.php'">

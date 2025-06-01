@@ -93,6 +93,58 @@
             font-size: 14px;
             text-align: center;
         }
+
+        header {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .add-button {
+            margin-left: auto; /* Push to the right */
+        }
+
+        /* User Profile Styles */
+        .user-profile {
+            position: relative;
+            cursor: pointer;
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 20px;
+            margin-left: 15px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
     </style>
 </head>
 <body>

@@ -48,9 +48,13 @@ if ($result->num_rows > 0){
 <center>
 <div class="img-container">
     <?php
-        $imageFullPath = '../media/' . $vimagepath;
-        if (!empty($vimagepath) && file_exists($imageFullPath)) {
-            echo "<img src='{$imageFullPath}' alt='Item Image'>";
+        if (!empty($vimagepath)) {
+            $imageFullPath = '../media/item-image/' . basename($vimagepath);
+            if (file_exists($imageFullPath)) {
+                echo "<img src='{$imageFullPath}' alt='Item Image'>";
+            } else {
+                echo "<p><em>No image available</em></p>";
+            }
         } else {
             echo "<p><em>No image available</em></p>";
         }

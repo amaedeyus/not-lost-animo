@@ -14,14 +14,58 @@
     <link rel="stylesheet" href="../css/menu-bar.css?v=<?= time() ?>">
     <style>
         /* Header icon specific styles */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         header .logo-img {
             height: 60px;
             width: auto;
         }
 
-        .search-wrapper img {
-            width: 20px;
-            height: 20px;
+        /* User Profile Styles */
+        .user-profile {
+            position: relative;
+            cursor: pointer;
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 20px;
+            margin-left: auto;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+
+        /* Remove search bar styles */
+        form {
+            width: 100%;
         }
 
         .add-button img {
@@ -154,61 +198,6 @@
             background-color: #388E3C;
         }
 
-        /* Search bar styles */
-        form {
-            width: 30%;
-        }
-
-        .search-wrapper {
-            gap: 20px;
-            position: relative;
-            width: 100%;
-        }
-
-        .search-wrapper input[type="search"] {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 15px 35px 15px 35px;
-            border-radius: 25px;
-            font-size: 15px;
-            border: none;
-        }
-
-        .search-wrapper input[type="search"]:focus {
-            outline: none;
-        }
-
-        .search-wrapper button {
-            padding: 7px 7px 7px 10px;
-            display: flex;
-            background-color: #4CAF50;
-            box-shadow: inset 0px -5px 5px 1px rgba(27, 115, 40, 0.552);
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transition: ease 0.3s;
-            transform: translateY(-50%);
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .search-wrapper button:hover {
-            background-color: #62b166;
-        }
-
-        select {
-            appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            background-size: 16px;
-            padding-right: 30px;
-            text-align-last: center;
-        }
-
         /* Ad Popup Styles */
         .ad-popup {
             display: none;
@@ -297,38 +286,25 @@
     </style>
 </head>
 <body>
-    <header>
-        <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
+<header>
+    <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
 
-        <form action="" method="get" name="formadd" enctype="multipart/form-data" novalidate>
-            <div class="search-wrapper">
-                <input type="search" id="txtsearch" name="q" placeholder="Search..." 
-                value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
-                <button type="submit"><img src="../media/search.png"></button>
-            </div>
-        </form>
-        
-        <button type="button" class="add-button" onclick="window.location.href='add-item.php'">
-            <img src="../media/add.png"> Submit Lost Item
-        </button>
-
-        <!-- User Profile and Dropdown -->
-        <div class="user-profile" onclick="toggleDropdown()">
-            <span><?= $fullName ?></span>
-            <div class="dropdown-content" id="dropdownMenu">
-                <a href="profile.php">My Profile</a>
-                <a href="logout.php">Log Out</a>
-            </div>
+    <div class="user-profile" onclick="toggleDropdown()">
+        <span><?= $fullName ?></span>
+        <div class="dropdown-content" id="dropdownMenu">
+            <a href="profile.php">My Profile</a>
+            <a href="logout.php">Log Out</a>
         </div>
-    </header>
+    </div>
+</header>
 
     <h1 class="form-title">Submit a Lost Item</h1>
     <p class="form-subtitle">Please fill out the item information</p>
 
-    <div class="form-container">
-        <form action="add-save.php" method="post" name="formadd" enctype="multipart/form-data" novalidate>
+<div class="form-container">
+    <form action="add-save.php" method="post" name="formadd" enctype="multipart/form-data" novalidate>
             <div class="form-group">
-                <label for="image_path">Insert item image:</label>
+        <label for="image_path">Insert item image:</label>
                 <div class="file-input-container">
                     <input type="file" name="image_path" id="image_path" accept="image/*" required>
                     <button type="button" class="file-input-button">Choose File</button>
@@ -337,22 +313,22 @@
             </div>
 
             <div class="form-group">
-                <label for="txtitemname">Item Name:</label>
+        <label for="txtitemname">Item Name:</label>
                 <input type="text" name="item_name" id="txtitemname" placeholder="Enter item name" required>
             </div>
 
             <div class="form-group">
-                <label for="txtdescription">Description:</label>
+        <label for="txtdescription">Description:</label>
                 <input type="text" name="description" id="txtdescription" placeholder="Enter item description" required>
             </div>
 
             <div class="form-group">
-                <label for="txtlostdate">When you found the item:</label>
+        <label for="txtlostdate">When you found the item:</label>
                 <input type="date" name="lost_date" id="txtlostdate" required>
             </div>
 
             <div class="form-group">
-                <label for="txtlostlocation">Where you found the item:</label>
+        <label for="txtlostlocation">Where you found the item:</label>
                 <select name="lost_location" id="txtstatus" required>
                     <option value="">Select location</option>
                     <option value="Sentrum">Sentrum</option>
@@ -372,15 +348,15 @@
                     <option value="Centen Sports Plaza">Centen Sports Plaza</option>
                     <option value="Oval">Oval</option>
                     <option value="College Lobby">College Lobby</option>
-                </select>
+        </select>
             </div>
-            
-            <div class="form-buttons">
-                <input type="submit" value="Save Record" />
+        
+        <div class="form-buttons">
+            <input type="submit" value="Save Record" />
                 <button type="button" onclick="window.location.href='item-main.php'">Back</button>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
     <div class="ad-overlay" id="adOverlay"></div>
     <div class="ad-popup" id="adPopup">
@@ -397,7 +373,7 @@
         </div>
     </div>
 
-    <script>
+<script>
         // Toggle Dropdown Menu
         function toggleDropdown() {
             var dropdownMenu = document.getElementById("dropdownMenu");
@@ -415,10 +391,10 @@
         });
 
         // Date input validation
-        const dateInput = document.getElementById("txtlostdate");
-        const today = new Date();
-        const minDate = `${today.getFullYear()}-05-15`;
-        dateInput.min = minDate;
+    const dateInput = document.getElementById("txtlostdate");
+    const today = new Date();
+    const minDate = `${today.getFullYear()}-05-15`;
+    dateInput.min = minDate;
 
         // Ad popup functionality
         window.onload = function() {
@@ -457,6 +433,6 @@
         fileButton.addEventListener("click", function() {
             fileInput.click();
         });
-    </script>
+</script>
 </body>
 </html>

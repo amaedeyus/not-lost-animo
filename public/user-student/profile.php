@@ -54,6 +54,10 @@ if ($user_index) {
             height: 20px;
         }
 
+        .add-button {
+            margin-left: auto; /* Push to the right */
+        }
+
         .add-button img {
             width: 13px;
             height: 13px;
@@ -356,6 +360,16 @@ if ($user_index) {
             margin: 10px 0;
             font-size: 14px;
             text-align: center;
+        }
+
+        /* User Profile Styles */
+        .user-profile {
+            position: relative;
+            cursor: pointer;
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 20px;
         }
     </style>
 </head>

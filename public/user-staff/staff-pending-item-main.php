@@ -174,9 +174,13 @@
         <div class="record-panel">
             <div class="img-container">
             <?php
-                $imageFullPath = '../media/' . $vimagepath;
-                if (!empty($vimagepath) && file_exists($imageFullPath)) {
-                    echo "<img src='{$imageFullPath}' alt='Item Image' class='item-image'>";
+                if (!empty($vimagepath)) {
+                    $imageFullPath = '../media/item-image/' . basename($vimagepath);
+                    if (file_exists($imageFullPath)) {
+                        echo "<img src='{$imageFullPath}' alt='Item Image' class='item-image'>";
+                    } else {
+                        echo "<p><em>No image available</em></p>";
+                    }
                 } else {
                     echo "<p><em>No image available</em></p>";
                 }
