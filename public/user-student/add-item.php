@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/header.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/menu-bar.css?v=<?= time() ?>">
     <style>
-        /* Header icon specific styles */
+
         header {
             display: flex;
             align-items: center;
@@ -63,7 +63,6 @@
             display: block;
         }
 
-        /* Remove search bar styles */
         form {
             width: 100%;
         }

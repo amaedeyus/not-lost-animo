@@ -12,15 +12,16 @@
 </head>
 <body>
     <header>
-        <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
-
-        <form action="" method="get" name="formadd" enctype="multipart/form-data" novalidate>
-            <div class="search-wrapper">
-                <input type="search" id="txtsearch" name="q" placeholder="Search..." 
-                value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
+            <form action="" method="get" name="formadd" enctype="multipart/form-data" novalidate>
+                <div class="search-wrapper">
+                    <input type="search" id="txtsearch" name="q" placeholder="Search..." 
+                    value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
                     <button type="submit"><img src="../media/search.png"></button>
-            </div>
-        </form>
+                </div>
+            </form>
+        </div>
         
         <div class="header-container">
             <button type="button" class="add-button" onclick="window.location.href='staff-item-main.php'">
@@ -41,6 +42,61 @@
     </header>
 
     <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #3b813e;
+            box-shadow: inset 0px -5px 20px 30px rgba(27, 115, 40, 0.552);
+        }
+
+        .logo-img {
+            height: 60px;
+        }
+
+        .search-wrapper {
+            width: 400px;
+        }
+
+        .search-wrapper input[type="search"] {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 15px 35px 15px 35px;
+            border-radius: 25px;
+            font-size: 15px;
+            border: none;
+        }
+
+        .search-wrapper input[type="search"]:focus {
+            outline: none;
+        }
+
+        .search-wrapper button {
+            padding: 7px 7px 7px 10px;
+            display: flex;
+            background-color: #4CAF50;
+            box-shadow: inset 0px -5px 5px 1px rgba(27, 115, 40, 0.552);
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transition: ease 0.3s;
+            transform: translateY(-50%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .search-wrapper button:hover {
+            background-color: #62b166;
+        }
+
+        .search-wrapper img {
+            width: 20px;
+            height: 20px;
+        }
+
         /* User Profile Dropdown Styles */
         .user-profile {
             position: relative;

@@ -13,21 +13,27 @@
     <link rel="stylesheet" href="../css/menu-bar.css?v=<?= time() ?>">
     <style>
         /* Header icon specific styles */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         header .logo-img {
             height: 60px;
             width: auto;
-        }
-
-        .add-button img {
-            width: 13px;
-            height: 13px;
-            margin-right: 5px;
         }
 
         .header-container {
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .add-button img {
+            width: 13px;
+            height: 13px;
+            margin-right: 5px;
         }
 
         .form-container {
