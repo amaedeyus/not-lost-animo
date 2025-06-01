@@ -3,23 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Register - Not Lost Animo</title>
+    <link rel="icon" type="image/png" href="../media/dlsl.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <h2>Register</h2>
-        <form action="../../backend/register.php" method="post">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+    <div class="grid">
+        <div class="login">
+            <div class="login-header">
+                <b>Create Account</b>
+                <div class="login-sub">Register to access Not Lost Animo</div>
+            </div>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <div class="form-container">
+                <form class="login-form" action="../../backend/register.php" method="post">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
 
-            <label for="confirm_password">Confirm Password</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
 
-            <input type="submit" value="Register">
-        </form>
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm your password">
+
+                    <input type="submit" value="Register">
+                </form>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <form class="login-form" action="front-end.html">
+                    <input type="submit" value="Back to Login">
+                </form>
+            </div>
+        </div>
+        <div class="image"></div>
     </div>
+
+    <style>
+        /* Additional styles specific to register page */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            width: 75%;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .divider span {
+            padding: 0 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Override some login.css styles for better registration form appearance */
+        .login-form {
+            margin-bottom: 10px;
+        }
+
+        input[type="email"] {
+            background-color: #fff;
+            outline-color: rgb(41, 51, 41);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 1vh;
+            width: 75%;
+            margin: 10px 0;
+            font-size: 0.75em;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+        }
+
+        .login-header {
+            margin-bottom: 20px;
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 75%;
+            text-align: center;
+            display: none;
+        }
+    </style>
+
+    <script>
+        // Password validation
+        document.querySelector('.login-form').addEventListener('submit', function(e) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                alert('Passwords do not match!');
+            }
+        });
+    </script>
 </body>
 </html>
