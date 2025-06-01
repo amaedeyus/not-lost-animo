@@ -1,5 +1,7 @@
 <?php
-session_start(); // Make sure session is started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Only start session if one hasn't been started
+}
 require("../include/conn.php");
 
 // Initialize empty variables

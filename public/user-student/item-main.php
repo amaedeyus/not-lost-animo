@@ -1,4 +1,3 @@
-current item main:
 <?php require("../include/conn.php"); ?>
 <?php require("get-user-info.php"); ?>
 <!DOCTYPE html>
@@ -28,16 +27,14 @@ current item main:
         
         <button type="button" class="add-button" onclick="window.location.href='add-item.php'"><img src="../media/add.png"> Submit Lost Item</button>
 
-        <!-- User Profile Text (Dynamic) -->
-            <div class="user-profile dropdown" onclick="toggleDropdown()">
-                <span><?= $fullName ?></span>
-            </div>
-
-        <!-- Dropdown Menu -->
+        <!-- User Profile and Dropdown -->
+        <div class="user-profile" onclick="toggleDropdown()">
+            <span><?= $fullName ?></span>
             <div class="dropdown-content" id="dropdownMenu">
                 <a href="profile.php">My Profile</a>
                 <a href="logout.php">Log Out</a>
             </div>
+        </div>
     </header>
 
 <div class="content">
@@ -193,18 +190,18 @@ if ($totalPages > 1) {
     // Toggle Dropdown Menu
     function toggleDropdown() {
         var dropdownMenu = document.getElementById("dropdownMenu");
-        dropdownMenu.classList.toggle("show"); // Show/hide the dropdown
+        dropdownMenu.classList.toggle("show");
     }
 
-    // Close dropdown if clicked outside
-    window.onclick = function(event) {
-        if (!event.target.closest('.user-profile')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-                dropdowns[i].classList.remove('show');
-            }
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        var userProfile = document.querySelector('.user-profile');
+        var dropdownMenu = document.getElementById("dropdownMenu");
+        
+        if (!userProfile.contains(event.target)) {
+            dropdownMenu.classList.remove('show');
         }
-    }
+    });
 </script>
 
 
