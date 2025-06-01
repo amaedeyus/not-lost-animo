@@ -35,7 +35,7 @@ if ($result->num_rows > 0){
     <link rel="stylesheet" href="../css/base.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/item-view.css?v=<?= time() ?>">
-
+    <link rel="stylesheet" href="../css/form-buttons.css?v=<?= time() ?>">
 </head>
 <body>
 
@@ -79,10 +79,9 @@ if ($result->num_rows > 0){
         <div class="form-buttons">
             <form method="post" action="approve-item.php">
                 <input type="hidden" name="item_index" value="<?= $vitemindex ?>">
-                <button class="btn" class="back-button" type="submit" name="approve">Approve</button>
+                <button type="submit" name="approve">Approve</button>
             </form>
-
-            <button type="button" class="back-button" onclick="window.location.href='staff-pending-item-main.php'">Back</button>
+            <button class="back-button" onclick="window.location.href='staff-pending-item-main.php'">Back</button>
         </div>
     
 </div>

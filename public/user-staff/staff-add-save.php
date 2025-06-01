@@ -1,5 +1,12 @@
 <?php
+session_start();
 require("../include/conn.php");
+
+if (!isset($_SESSION['user_index'])) {
+    echo "<script>alert('Please login first.');</script>";
+    echo "<meta http-equiv='refresh' content='.000001;url=../system-login/front-end.html' />";
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vitemname = $_POST['item_name'];
@@ -8,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vlostlocation = $_POST['lost_location'];
     $vstatus = "Lost";
     $vimagepath = '';
+    $user_index = $_SESSION['user_index'];
 
     if (isset($_FILES['image_path']) && $_FILES['image_path']['error'] === UPLOAD_ERR_OK) {
         $uploadDir = '../media/';
@@ -22,10 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     
-$sql = "INSERT INTO item_submission (item_name, description, lost_date, lost_location, image_path, status, approved) 
-        VALUES (?, ?, ?, ?, ?, ?, 1)";
+$sql = "INSERT INTO item_submission (item_name, description, lost_date, lost_location, image_path, status, approved, user_submit_index) 
+        VALUES (?, ?, ?, ?, ?, ?, 1, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssss", $vitemname, $vdescription, $vlostdate, $vlostlocation, $vimagepath, $vstatus);
+$stmt->bind_param("ssssssi", $vitemname, $vdescription, $vlostdate, $vlostlocation, $vimagepath, $vstatus, $user_index);
 
 if ($stmt->execute()) {
     echo "<script>alert('Item Saved.');</script>";
