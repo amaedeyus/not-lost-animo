@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="../media/dlsl.png">
     <link rel="stylesheet" href="../css/base.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/staff-main.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/ads.css?v=<?= time() ?>">
 </head>
 <body>
     <header>
@@ -159,7 +160,43 @@
                 dropdownMenu.classList.remove('show');
             }
         });
+
+        // Ad popup functionality
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('adOverlay').style.display = 'block';
+                document.getElementById('adPopup').style.display = 'block';
+            }, 2000); // Show after 2 seconds
+        }
+
+        function closeAd() {
+            var video = document.querySelector('.ad-video');
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+            document.getElementById('adOverlay').style.display = 'none';
+            document.getElementById('adPopup').style.display = 'none';
+        }
+
+        // Close ad when clicking overlay
+        document.getElementById('adOverlay').addEventListener('click', closeAd);
     </script>
+
+    <div class="ad-overlay" id="adOverlay"></div>
+    <div class="ad-popup" id="adPopup">
+        <div class="ad-header">
+            <h3 class="ad-title">Special Advertisement</h3>
+            <button class="close-ad" onclick="closeAd()">×</button>
+        </div>
+        <div class="ad-content">
+            <video class="ad-video" controls autoplay muted>
+                <source src="../media/ads/cokevid1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="ad-description">Enjoy this special message from our sponsor!</p>
+        </div>
+    </div>
 
 <div class="content">
 

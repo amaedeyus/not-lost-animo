@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/base.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/menu-bar.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/ads.css?v=<?= time() ?>">
     <style>
         /* Header icon specific styles */
         header {
@@ -207,6 +208,12 @@
         .dropdown-content a:hover {
             background-color: #ddd;
         }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -327,6 +334,43 @@
         fileButton.addEventListener("click", function() {
             fileInput.click();
         });
+
+        // Ad popup functionality
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('adOverlay').style.display = 'block';
+                document.getElementById('adPopup').style.display = 'block';
+            }, 2000); // Show after 2 seconds
+        }
+
+        function closeAd() {
+            var video = document.querySelector('.ad-video');
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+            document.getElementById('adOverlay').style.display = 'none';
+            document.getElementById('adPopup').style.display = 'none';
+        }
+
+        // Close ad when clicking overlay
+        document.getElementById('adOverlay').addEventListener('click', closeAd);
     </script>
+
+    <div class="ad-overlay" id="adOverlay"></div>
+    <div class="ad-popup" id="adPopup">
+        <div class="ad-header">
+            <h3 class="ad-title">Special Advertisement</h3>
+            <button class="close-ad" onclick="closeAd()">×</button>
+        </div>
+        <div class="ad-content">
+            <video class="ad-video" controls autoplay muted>
+                <source src="../media/ads/cokevid1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="ad-description">Enjoy this special message from our sponsor!</p>
+        </div>
+    </div>
+
 </body>
 </html>

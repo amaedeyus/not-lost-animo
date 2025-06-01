@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/base.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../css/menu-bar.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../css/ads.css?v=<?= time() ?>">
     <style>
 
         header {
@@ -197,88 +198,17 @@
             background-color: #388E3C;
         }
 
-        /* Ad Popup Styles */
-        .ad-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            width: 90%;
-            max-width: 800px;
-            color: white;
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 16px;
+            padding-right: 30px;
+            text-align-last: center;
         }
 
-        .ad-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 999;
-        }
 
-        .ad-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #333;
-        }
-
-        .ad-title {
-            color: white;
-            margin: 0;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .close-ad {
-            background: none;
-            border: none;
-            color: #666;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .close-ad:hover {
-            color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .ad-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .ad-video {
-            width: 100%;
-            max-width: 720px;
-            border-radius: 4px;
-            background: #000;
-        }
-
-        .ad-description {
-            color: #ccc;
-            margin: 10px 0;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        /* Hide default file input */
         input[type="file"] {
             display: none;
         }
