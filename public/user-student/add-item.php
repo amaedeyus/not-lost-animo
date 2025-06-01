@@ -213,8 +213,45 @@
             display: none;
         }
     </style>
+    <style>
+        .top-banner {
+            width: 100%;
+            background-color: #fff;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .top-banner img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .close-banner {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 5px 10px;
+        }
+
+        .close-banner:hover {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
+    <div class="top-banner" id="topBanner">
+        <img src="../media/ads/cokebanner1.png" alt="Coca-Cola Banner">
+        <button class="close-banner" onclick="closeBanner()">×</button>
+    </div>
 <header>
     <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
 
@@ -294,8 +331,12 @@
             <button class="close-ad" onclick="closeAd()">×</button>
         </div>
         <div class="ad-content">
+            <?php
+            $videos = ['cokevid1.mp4', 'cokevid2.mp4', 'cokevid3.mp4', 'cokevid4.mp4', 'cokevid5.mp4'];
+            $randomVideo = $videos[array_rand($videos)];
+            ?>
             <video class="ad-video" controls autoplay muted>
-                <source src="../media/ads/cokevid1.mp4" type="video/mp4">
+                <source src="../media/ads/<?php echo $randomVideo; ?>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <p class="ad-description">Enjoy this special message from our sponsor!</p>
@@ -362,6 +403,11 @@
         fileButton.addEventListener("click", function() {
             fileInput.click();
         });
+
+        // Banner functionality
+        function closeBanner() {
+            document.getElementById('topBanner').style.display = 'none';
+        }
 </script>
 </body>
 </html>
