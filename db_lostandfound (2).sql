@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2025 at 05:39 AM
+-- Generation Time: Jun 01, 2025 at 10:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,43 +70,9 @@ CREATE TABLE `item_submission` (
 --
 
 INSERT INTO `item_submission` (`item_index`, `user_submit_index`, `image_path`, `item_name`, `description`, `lost_location`, `lost_date`, `user_retrieve_index`, `retrieval_date`, `status`, `approved`) VALUES
-(28, 0, 'Seventeen The8.jpg', 'Minghao', 'Asawa ni Xy', 'Sentrum', '2025-05-15', 0, NULL, 'Pending', 0),
-(29, 0, '290886ff-7116-406a-8a2c-e7e45a028704.jpg', 'Cheolito', 'Manliligaw ni Xy', 'Capilla', '2025-05-16', 0, NULL, 'Pending', 0),
-(30, 0, '630ffe08-f261-4f57-9c49-9e3ac4eed6df.jpg', 'Hoshi', 'Delusional na tiger', 'CBEAM Building', '2025-05-17', 0, NULL, 'Pending', 0),
-(31, 0, '32c143f5-9444-41a3-a9bd-838950ad2b22.jpg', 'Dino', 'rawrrrr', 'Br. Benilde Building', '2025-05-18', 0, NULL, 'Pending', 0),
-(32, 0, '0d36f0d3-1582-4b34-96c9-adf3e739fbbe.jpg', 'Vernon', 'I\'m on my worst behavior, how you like me now? Put a muzzle on me, I\'ll spit in your mouth Wake me up from this nightmare, please I\'m scarred and bruised with a black-eyed face', 'JRN Building', '2025-05-19', 0, NULL, 'Pending', 0),
-(33, 0, '55230a0d-b318-41ba-bfc9-114fe65f5013.jpg', 'Woozi', 'Balat parang kinukuha ni lord', 'JRF Building', '2025-05-20', 0, NULL, 'Pending', 0),
-(34, 0, '400bdd54-5566-4ee7-86fa-fb6d89a09316.jpg', 'Kwannie', 'mataray siya sis', 'JRF Building', '2025-05-21', 0, NULL, 'Pending', 0),
-(35, 0, '5db48b10-7ad8-4ce0-b737-a8de0b9b52bb.jpg', 'Seokmin', 'SALUTEEEEEEEEEEEEE', 'Mabini Building', '2025-05-22', 0, NULL, 'Pending', 0),
-(36, 0, '695cd691-faee-415b-b8de-b2036ec9838f.jpg', 'Jun', 'Bestfriend ng asawa ni Xy', 'Retreat Complex', '2025-05-23', 0, NULL, 'Pending', 0),
-(37, 0, '24f20ef3-381d-4619-9ba8-dab596047d67.jpg', 'Joshua', 'si mister sunday morning', 'Chez Rafael', '2025-05-24', 0, NULL, 'Pending', 0),
-(38, 0, '85f80f3c-8bb4-4fe6-9245-2df18afc3dc8.jpg', 'Hannie', 'si ganda \'to eh; subukan niyo lang agawin kay Cheolito', 'LRC', '2025-05-24', 0, NULL, 'Pending', 0),
-(39, 0, 'da126325-077e-4c6b-9e88-5f9156d171f6.jpg', 'Wonwoo', 'bebelabs ni mister biceps', 'Jose Diokno Building', '2025-05-25', 0, NULL, 'Pending', 0),
-(40, 0, 'c967e500-2824-4499-91b7-9780ae8f9b42.jpg', 'Mingyu', 'ito si mister biceps', 'Sports Complex', '2025-05-26', 0, NULL, 'Pending', 0),
-(41, 0, '⋆𓉞˚˖ 𑁍ࠬܓ.jpg', 'Unak', 'bunso na happy pill', 'Student Center', '2025-06-01', 0, NULL, 'Pending', 0),
-(42, 0, '⋆𓉞˚˖ 𑁍ࠬܓ (1).jpg', 'Taesan', 'kunwari astig siya', 'IT Domain', '2025-06-02', 0, NULL, 'Pending', 0),
-(43, 0, '⋆𓉞˚˖ 𑁍ࠬܓ (2).jpg', 'Sungho', 'mama bear', 'Centen Sports Plaza', '2025-06-03', 0, NULL, 'Pending', 0),
-(44, 0, '⋆𓉞˚˖ 𑁍ࠬܓ (3).jpg', 'Myungjae', 'he\'s a lil quirky', 'Oval', '2025-06-04', 0, NULL, 'Pending', 0),
-(45, 0, '⋆𓉞˚˖ 𑁍ࠬܓ (4).jpg', 'Riu', 'bangis gumiling', 'College Lobby', '2025-07-05', 0, NULL, 'Pending', 0),
-(46, 0, '☆.jpg', 'Ihan', 'corydoras.', 'Sentrum', '2025-06-06', 0, NULL, 'Pending', 0),
-(47, 0, 'download (11).jpg', 'Yoongi', 'Nan bekkineun geol bekkineun nomeul jabadaga Hubaedeun seonbaedeun jekkineun nom Nompaengideun naega wack ideun fack Ideun yeoksareul badage saegineun nom Tto jaemido eomneun raebpeodeul saieseo Neul namdeulboda deo chaenggineun mok Jallaganeun deoge babgeureut ppaetgil Hyeongdeure shigi jiltu deoge saenggineun soeum', 'Sentrum', '2025-07-01', 0, NULL, 'Pending', 0),
-(48, 0, 'RM.jpg', 'RM', '\'di marunong maghiwa ng sibuyas', 'Capilla', '2025-07-02', 0, NULL, 'Pending', 0),
-(49, 0, 'download (12).jpg', 'Jimin', 'no jams', 'JRN Building', '2025-07-03', 0, NULL, 'Pending', 0),
-(50, 0, 'download (13).jpg', 'Jin', 'tawa nalang kayo sa jokes niya kahit pilit', 'Sports Complex', '2025-07-04', 0, NULL, 'Pending', 0),
-(51, 0, 'download (14).jpg', 'Taehyung', 'si boss gucci to ehhh', 'IT Domain', '2025-07-05', 0, NULL, 'Pending', 0),
-(52, 0, 'download (15).jpg', 'Jungkook', 'he will be doing wHAT TO YOU NIGHT AFTER NIGHT?', 'LRC', '2025-07-06', 0, NULL, 'Pending', 0),
-(53, 0, 'download (16).jpg', 'Hobi', 'hapi sunshine always yehey', 'Sports Complex', '2025-07-07', 0, NULL, 'Pending', 0),
-(54, 0, '478906434_1796973871061336_1196048458877425365_n.jpg', 'Soobin', 'sweaty sa LoL', 'LRC', '2025-08-01', 0, NULL, 'Pending', 0),
-(55, 0, '477032937_1796973947727995_7822366551452897979_n.jpg', 'Yeonjun', 'wwae wawe eawe wae awae', 'Student Center', '2025-08-02', 0, NULL, 'Pending', 0),
-(56, 0, '479328362_1796973744394682_4488205551926243800_n.jpg', 'Beomgyu', 'makulit yan shea', 'Br. Benilde Building', '2025-08-03', 0, NULL, 'Pending', 0),
-(57, 0, '478420880_1796973934394663_196605231675931968_n.jpg', 'Terry', 'terry!!!!!!!!!!!!!!!!!!!!!!!!!!', 'Retreat Complex', '2025-08-04', 0, NULL, 'Pending', 0),
-(58, 0, '478040058_1796973644394692_7997629872371894240_n.jpg', 'Hyuka', 'das kinda sus', 'Centen Sports Plaza', '2025-08-05', 0, NULL, 'Pending', 1),
-(60, 0, 'logo_example.gif', 'test', 'test', 'Sentrum', '2025-05-22', 0, NULL, 'Lost', 1),
-(61, 0, 'logo_example.gif', 'test', 'test1', 'Sentrum', '2025-05-23', 0, NULL, 'Pending', 0),
-(62, 0, 'logo_example.gif', 'test2', 'test2', 'Mabini Building', '2025-05-15', 0, NULL, 'Pending', 1),
-(63, 0, 'img.png', 'apol', 'apol', 'Retreat Complex', '2025-05-31', 0, NULL, 'Lost', 1),
-(64, 0, 'image_with_alpha.png', 'test3', 'test3', 'Sentrum', '2025-05-27', 0, NULL, 'Pending', 1),
-(65, 0, 'logo_example.png', 'test4', 'test4', 'Br. Benilde Building', '2025-05-31', 0, NULL, 'Lost', 1);
+(76, 10, 'item-image/F8TOcPOb0AAapDC.jpg', 'Kim Dokja', 'My Star', 'LRC', '2025-06-01', 0, NULL, 'Lost', 1),
+(77, 10, 'item-image/62b7ff80e1674b951715e22b107f84b1.jpg', 'Duck', 'yellow duck', 'Sports Complex', '2025-06-01', 0, NULL, 'Lost', 1),
+(78, 1, 'item-image/Fz7_AjFaMAAtsFF.jpg', 'Yoo Joonghyuk', 'The Regressor', 'Sports Complex', '2025-06-01', 0, NULL, 'Lost', 1);
 
 -- --------------------------------------------------------
 
@@ -1055,7 +1021,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `item_submission`
 --
 ALTER TABLE `item_submission`
-  MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `programs`
