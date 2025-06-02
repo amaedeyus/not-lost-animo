@@ -4,6 +4,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const pool = require('./dbconnect'); // Database connection
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
+const flash = require('connect-flash');
 
 // Load environment variables
 require('dotenv').config({ path: './backend/config/.env' });
@@ -24,6 +25,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false } // Set to true if using HTTPS
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -138,14 +140,15 @@ app.get('/auth/google',
 );
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
+  passport.authenticate('google', { 
+    failureRedirect: 'http://localhost/not-lost-animo/public/system-login/front-end.html?error=google_failed',
+    failureFlash: true // Enable flash messages
+  }),
   (req, res) => {
-    // Check if the user is authenticated and has the 'staff' role
+    // Successful authentication
     if (req.isAuthenticated() && req.user.userType === 'staff') {
-      // Redirect staff members to the staff dashboard
       res.redirect('http://localhost/not-lost-animo/public/user-staff/staff-item-main.php');
     } else {
-      // Redirect non-staff users to an error page or unauthorized page
       res.redirect('http://localhost/not-lost-animo/public/user-student/item-main.php');
     }
   }

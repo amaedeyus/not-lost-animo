@@ -124,6 +124,16 @@
         window.onload = function() {
             document.getElementById('overlay').style.display = 'block';
             document.getElementById('welcomeAlert').style.display = 'block';
+
+            // Check for Google login failure error
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+
+            if (error === 'google_failed' || error === 'login_failed') {
+                alert('Invalid email or password.'); // Display the desired alert
+                // Optional: Remove the query parameter from the URL after displaying the alert
+                // window.history.replaceState({}, document.title, "/public/system-login/front-end.html");
+            }
         }
 
         // Close welcome alert

@@ -36,15 +36,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 exit();
             } else {
-                echo "Invalid email or password.";
+                // Redirect on failed login with error parameter
+                header("Location: ../public/system-login/front-end.html?error=login_failed");
+                exit();
             }
         } else {
-            echo "Invalid email or password.";
+            // Redirect on user not found with error parameter
+            header("Location: ../public/system-login/front-end.html?error=login_failed");
+            exit();
         }
-
         $stmt->close();
     }
-
     $conn->close();
 }
 ?>
