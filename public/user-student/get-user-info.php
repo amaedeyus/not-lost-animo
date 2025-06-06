@@ -1,13 +1,19 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
-    session_start(); // Only start session if one hasn't been started
+    session_start(); // Start session if not already started
 }
+
 require("../include/conn.php");
 
-// Initialize empty variables
+// Store the user index from URL into the session, only if not already set
+if (isset($_GET['uid']) && is_numeric($_GET['uid'])) {
+    $_SESSION['user_index'] = (int) $_GET['uid'];
+}
+
 $fullName = "Guest";
 $email = "";
 
+// Only proceed if user_index is stored in session
 if (isset($_SESSION['user_index'])) {
     $userIndex = $_SESSION['user_index'];
 

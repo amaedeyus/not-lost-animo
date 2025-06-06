@@ -18,7 +18,7 @@ Before running the app, ensure you have:
 Run this command in the root of your project:
 
 ```bash
-npm install express passport passport-google-oauth20 express-session dotenv mysql2 bcryptjs
+npm install express passport passport-google-oauth20 express-session dotenv mysql2 bcryptjs cors
 ```
 
 ```bash
