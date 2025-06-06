@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2025 at 10:32 AM
+-- Generation Time: Jun 06, 2025 at 10:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,9 +70,43 @@ CREATE TABLE `item_submission` (
 --
 
 INSERT INTO `item_submission` (`item_index`, `user_submit_index`, `image_path`, `item_name`, `description`, `lost_location`, `lost_date`, `user_retrieve_index`, `retrieval_date`, `status`, `approved`) VALUES
-(76, 10, 'item-image/F8TOcPOb0AAapDC.jpg', 'Kim Dokja', 'My Star', 'LRC', '2025-06-01', 0, NULL, 'Lost', 1),
-(77, 10, 'item-image/62b7ff80e1674b951715e22b107f84b1.jpg', 'Duck', 'yellow duck', 'Sports Complex', '2025-06-01', 0, NULL, 'Lost', 1),
-(78, 1, 'item-image/Fz7_AjFaMAAtsFF.jpg', 'Yoo Joonghyuk', 'The Regressor', 'Sports Complex', '2025-06-01', 0, NULL, 'Lost', 1);
+(81, 37, 'item-image/630ffe08-f261-4f57-9c49-9e3ac4eed6df.jpg', 'hoshi', 'horangi', 'JRN Building', '2025-06-18', 0, NULL, 'Returned', 1),
+(83, 37, 'item-image/RM.jpg', 'sdfsdf', 'dfsdfdf', 'LRC', '2025-06-26', 0, NULL, 'Pending', 0),
+(85, 37, 'item-image/☆.jpg', 'Sungho', 'dfgdfg', 'Mabini Building', '2025-06-28', 0, NULL, 'Pending', 0),
+(86, 37, 'item-image/Seventeen The8.jpg', 'Minghao', 'asawa ni Xy', 'JRF Building', '2025-06-05', 0, NULL, 'Returned', 1),
+(87, 1, 'item-image/download (13).jpg', 'Jin', 'Jin', 'Jose Diokno Building', '2025-06-26', 0, NULL, 'Lost', 1),
+(88, 1, 'item-image/477032937_1796973947727995_7822366551452897979_n.jpg', 'Yeonjun', 'ggum', 'JRF Building', '2025-05-29', 0, NULL, 'Lost', 1),
+(89, 37, 'item-image/download (15).jpg', 'jungkook', 'asdasd', 'Mabini Building', '2025-06-05', 0, NULL, 'Pending', 0),
+(90, 1, 'item-image/Seventeen The8.jpg', 'Minghao', '你爱我 我爱你 蜜雪冰城甜蜜蜜 你爱我 我爱你 蜜雪冰城甜蜜蜜 你爱我呀 我爱你 你爱我 我爱你 蜜雪冰城甜蜜蜜', 'Sentrum', '2025-06-06', 0, NULL, 'Lost', 1),
+(91, 1, 'item-image/290886ff-7116-406a-8a2c-e7e45a028704.jpg', 'Seungcheol', 'melon pan', 'CBEAM Building', '2025-06-02', 0, NULL, 'Lost', 1),
+(92, 1, 'item-image/630ffe08-f261-4f57-9c49-9e3ac4eed6df.jpg', 'Hoshi', 'horangi', 'Sports Complex', '2025-05-14', 0, NULL, 'Lost', 1),
+(93, 1, 'item-image/32c143f5-9444-41a3-a9bd-838950ad2b22.jpg', 'Dino', 'ichan', 'IT Domain', '2025-06-01', 0, NULL, 'Returned', 1),
+(94, 1, 'item-image/0d36f0d3-1582-4b34-96c9-adf3e739fbbe.jpg', 'Vernon', 'I\'m on my worst behavior, how you like me now? Put a muzzle on me, I\'ll spit in your mouth Wake me up from this nightmare, please I\'m scarred and bruised with a black-eyed face', 'Oval', '2025-06-01', 0, NULL, 'Lost', 1),
+(95, 1, 'item-image/55230a0d-b318-41ba-bfc9-114fe65f5013.jpg', 'Woozi', 'pink underwear', 'Sports Complex', '2025-05-28', 0, NULL, 'Returned', 1),
+(96, 1, 'item-image/400bdd54-5566-4ee7-86fa-fb6d89a09316.jpg', 'Seungkwan', 'hajimalago', 'JRF Building', '2025-05-06', 0, NULL, 'Lost', 1),
+(97, 1, 'item-image/5db48b10-7ad8-4ce0-b737-a8de0b9b52bb.jpg', 'DK', 'SALUTEEEEEEEEEEEEE', 'Sentrum', '2025-06-06', 0, NULL, 'Lost', 1),
+(98, 1, 'item-image/695cd691-faee-415b-b8de-b2036ec9838f.jpg', 'Jun', 'psycho', 'LRC', '2025-06-01', 0, NULL, 'Lost', 1),
+(99, 1, 'item-image/24f20ef3-381d-4619-9ba8-dab596047d67.jpg', 'Joshua', 'sunday morning', 'Mabini Building', '2025-05-31', 0, NULL, 'Lost', 1),
+(100, 1, 'item-image/85f80f3c-8bb4-4fe6-9245-2df18afc3dc8.jpg', 'Jeonghan', 'si ganda', 'Chez Rafael', '2025-05-22', 0, NULL, 'Lost', 1),
+(101, 1, 'item-image/da126325-077e-4c6b-9e88-5f9156d171f6.jpg', 'Wonwoo', 'wonu wonu wonu wonu', 'Capilla', '2025-04-21', 0, NULL, 'Lost', 1),
+(102, 1, 'item-image/c967e500-2824-4499-91b7-9780ae8f9b42.jpg', 'Mingyu', 'biceps grrrr', 'Retreat Complex', '2025-05-15', 0, NULL, 'Lost', 1),
+(103, 1, 'item-image/478906434_1796973871061336_1196048458877425365_n.jpg', 'Soobin', 'LoL sweat', 'College Lobby', '2025-05-30', 0, NULL, 'Lost', 1),
+(104, 1, 'item-image/477032937_1796973947727995_7822366551452897979_n.jpg', 'Yeonjun', 'soobin? yk soobin yk', 'College Lobby', '2025-06-03', 0, NULL, 'Returned', 1),
+(105, 1, 'item-image/479328362_1796973744394682_4488205551926243800_n.jpg', 'Beomgyu', 'bear', 'IT Domain', '2025-05-03', 0, NULL, 'Lost', 1),
+(106, 1, 'item-image/478420880_1796973934394663_196605231675931968_n.jpg', 'Taehyun', 'terry!!!!!!!!!!!!!!!!!!!!!!!!!!', 'Sports Complex', '2025-03-12', 0, NULL, 'Returned', 1),
+(107, 1, 'item-image/478040058_1796973644394692_7997629872371894240_n.jpg', 'Huening Kai', 'hyuka', 'IT Domain', '2025-06-05', 0, NULL, 'Lost', 1),
+(108, 1, 'item-image/download (16).jpg', 'Hoseok', 'sunshine ng lahat', 'Chez Rafael', '2025-06-03', 0, NULL, 'Lost', 1),
+(109, 1, 'item-image/RM.jpg', 'Namjoon', '\'di marunong maghiwa ng sibuyas', 'CBEAM Building', '2025-06-04', 0, NULL, 'Lost', 1),
+(110, 37, 'item-image/download (11).jpg', 'Yoongi', 'Nan bekkineun geol bekkineun nomeul jabadaga Hubaedeun seonbaedeun jekkineun nom Nompaengideun naega wack ideun fack Ideun yeoksareul badage saegineun nom Tto jaemido eomneun raebpeodeul saieseo Neul namdeulboda deo chaenggineun mok Jallaganeun deoge babgeureut ppaetgil Hyeongdeure shigi jiltu deoge saenggineun soeum', 'Capilla', '2025-06-03', 0, NULL, 'Pending', 0),
+(111, 37, 'item-image/download (12).jpg', 'Jimin', 'no jams', 'Jose Diokno Building', '2025-06-02', 0, NULL, 'Pending', 0),
+(112, 37, 'item-image/download (13).jpg', 'Seokjin', 'Jin', 'Oval', '2025-05-23', 0, NULL, 'Pending', 0),
+(113, 37, 'item-image/download (14).jpg', 'Taehyung', 'bwi', 'Centen Sports Plaza', '2025-06-06', 0, NULL, 'Pending', 0),
+(114, 37, 'item-image/download (15).jpg', 'Jungkook', 'he will be doing wHAT TO YOU NIGHT AFTER NIGHT?', 'Capilla', '2025-04-07', 0, NULL, 'Pending', 0),
+(115, 37, 'item-image/⋆𓉞˚˖ 𑁍ࠬܓ.jpg', 'Woonhak', 'unagi', 'Sports Complex', '2025-05-23', 0, NULL, 'Pending', 0),
+(116, 37, 'item-image/⋆𓉞˚˖ 𑁍ࠬܓ (1).jpg', 'Taesan', 'emo', 'Sports Complex', '2025-05-20', 0, NULL, 'Pending', 0),
+(117, 37, 'item-image/☆.jpg', 'Leehan', 'corydoras.', 'Centen Sports Plaza', '2025-05-02', 0, NULL, 'Pending', 0),
+(118, 37, 'item-image/⋆𓉞˚˖ 𑁍ࠬܓ (4).jpg', 'Riwoo', 'dance machine', 'CBEAM Building', '2025-05-12', 0, NULL, 'Pending', 0),
+(119, 37, 'item-image/⋆𓉞˚˖ 𑁍ࠬܓ (3).jpg', 'Jaehyun', 'manners maketh man', 'IT Domain', '2025-06-04', 0, NULL, 'Pending', 0);
 
 -- --------------------------------------------------------
 
@@ -441,7 +475,7 @@ INSERT INTO `students` (`student_index`, `user_index`, `image_path`, `student_nu
 (33, 34, '', '2023362341', 'PARAY', 'JANE ALLYSON', '9293410108', 1, 17),
 (34, 35, '', '2023358411', 'SAHAGUN', 'DANIEL LUIS', '9298657375', 1, 17),
 (35, 36, '', '2023364651', 'SIMAN', 'THOMAS ALEXANDRE', '9760811239', 1, 18),
-(36, 37, '', '2023359771', 'TALENS', 'XYRELLE DOMINIQUE', '9605365864', 1, 18),
+(36, 37, '../public/Media/uploads/profile_684286c236eae.jpg', '2023359771', 'TALENS', 'XYRELLE DOMINIQUE', '9605365864', 1, 18),
 (37, 38, '', '2023352411', 'TENORIO', 'JHON PAULO', '9912217223', 1, 19),
 (38, 39, '', '1700019578', 'TORRES', 'KYAN PRINCE', '9561998634', 1, 19),
 (39, NULL, '', '2021234567', 'SEUNGCHEOL', 'CHOI', '09123456789', 1, 20),
@@ -1021,7 +1055,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `item_submission`
 --
 ALTER TABLE `item_submission`
-  MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `item_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `programs`
