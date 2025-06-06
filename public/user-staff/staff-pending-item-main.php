@@ -228,7 +228,7 @@
         <?php
 
              // Pagination setup
-            $itemsPerPage = 25;
+            $itemsPerPage = 15;
             $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $offset = ($currentPage - 1) * $itemsPerPage;
 

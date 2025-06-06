@@ -329,7 +329,7 @@ function closeIntro() {
         <?php
 
              // Pagination setup
-            $itemsPerPage = 25;
+            $itemsPerPage = 15;
             $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $offset = ($currentPage - 1) * $itemsPerPage;
 
@@ -417,7 +417,7 @@ function closeIntro() {
     <!-- Pagination Controls -->
 <?php
 // Get the total number of items
-$totalSql = "SELECT COUNT(*) AS total FROM item_submission WHERE 1=1";
+$totalSql = "SELECT COUNT(*) AS total FROM item_submission WHERE approved = 1 AND status IN ('Lost', 'Returned')";
 $totalParams = [];
 $totalTypes = "";
 
