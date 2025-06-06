@@ -73,13 +73,29 @@ if ($result->num_rows > 0){
         <input readonly type="text" name="lost_location" id="txtlostlocation" value="<?php echo $vlostlocation; ?>">
         
 
-        <label for="txtstatus">Status</label>
-            <select name="status" id="txtstatus">
-                <option value="Approved" <?= $vstatus == "Lost" ? 'selected' : '' ?>>Lost</option>
-                <option value="Returned" <?= $vstatus == "Returned" ? 'selected' : '' ?>>Returned</option>
-            </select>
+   <form method="post" action="update-status.php" onsubmit="alert('Item Updated!'); return true;" style="display: inline;">
+    <input type="hidden" name="item_index" value="<?= $vitemindex ?>">
 
-        <div class="form-buttons">  
+    <label for="txtstatus">Status</label>
+    <select name="status" id="txtstatus">
+        <option value="Lost" <?= $vstatus == "Lost" ? 'selected' : '' ?>>Lost</option>
+        <option value="Returned" <?= $vstatus == "Returned" ? 'selected' : '' ?>>Returned</option>
+    </select>
+
+    <div class="form-buttons">
+        <button type="submit" name="update">Update</button>
+    </div>
+</form>
+
+
+
+            <div class="form-buttons"> 
+
+            <form method="post" action="delete-item.php" onsubmit="return confirm('Are you sure you want to delete this item?');" style="display: inline;">
+                <input type="hidden" name="item_index" value="<?= $vitemindex ?>">
+                <input type="hidden" name="redirect" value="<?= htmlspecialchars($_SERVER['HTTP_REFERER']) ?>">
+                <button type="submit" name="delete" class="delete-button">Delete</button>
+            </form> 
             <button type="button" class="back-button" onclick="window.location.href='staff-item-main.php'">Back</button>
         </div>
     

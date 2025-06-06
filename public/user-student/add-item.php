@@ -65,153 +65,152 @@
         }
 
         form {
-            width: 100%;
-        }
+    width: 100%;
+}
 
-        .add-button img {
-            width: 13px;
-            height: 13px;
-            margin-right: 5px;
-        }
+.add-button img {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+}
 
-        .form-container {
-            font-family: 'Nunito', sans-serif;
-            background-color: #dff7df;
-            width: 450px;
-            margin: 30px auto;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.form-container {
+    font-family: 'Nunito', sans-serif;
+    background-color: #dff7df;
+    width: 450px;
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .form-container form {
-            width: 100%;
-            max-width: 350px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.form-container form {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .form-group {
-            width: 100%;
-            margin-bottom: 15px;
-            text-align: center;
-        }
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+}
 
-        .form-title {
-            font-family: 'Nunito', sans-serif;
-            text-align: center;
-            color: #124d2c;
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
+.form-title {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    color: #124d2c;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
 
-        .form-subtitle {
-            font-family: 'Nunito', sans-serif;
-            text-align: center;
-            color: #3c5f4b;
-            margin-bottom: 20px;
-        }
+.form-subtitle {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    color: #3c5f4b;
+    margin-bottom: 20px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #124d2c;
-            text-align: center;
-        }
+label {
+    font-family: 'Nunito', sans-serif;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #124d2c;
+    text-align: center;
+}
 
-        input[type="text"],
-        input[type="date"],
-        select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background-color: #fff;
-            box-sizing: border-box;
-            font-size: 14px;
-            display: block;
-            text-align: center;
-        }
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
 
-        input[type="file"] {
-            margin-bottom: 15px;
-            width: 100%;
-            text-align: center;
-        }
+/* Select with custom arrow */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 36px;
+    text-align-last: center;
+}
 
-        /* Custom file input styling */
-        .file-input-container {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 15px;
-        }
+input[type="file"] {
+    display: none;
+}
 
-        .file-input-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.file-input-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
 
-        .file-input-button:hover {
-            background-color: #388E3C;
-        }
+.file-input-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+}
 
-        #file-name-display {
-            margin-top: 8px;
-            font-size: 14px;
-            color: #666;
-        }
+.file-input-button:hover {
+    background-color: #388E3C;
+}
 
-        .form-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
-            width: 100%;
-        }
+#file-name-display {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+}
 
-        .form-buttons input[type="submit"],
-        .form-buttons button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            border-radius: 20px;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-            min-width: 120px;
-        }
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
 
-        .form-buttons input[type="submit"]:hover,
-        .form-buttons button:hover {
-            background-color: #388E3C;
-        }
+.form-buttons input[type="submit"],
+.form-buttons button {
+    padding: 10px 25px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: 'Nunito', sans-serif;
+}
 
-        select {
-            appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            background-size: 16px;
-            padding-right: 30px;
-            text-align-last: center;
-        }
+.form-buttons input[type="submit"]:hover,
+.form-buttons button:hover {
+    background-color: #388E3C;
+}
 
-
-        input[type="file"] {
-            display: none;
-        }
     </style>
     <style>
         .top-banner {
@@ -225,7 +224,7 @@
         }
 
         .top-banner img {
-            max-width: 100%;
+            max-width: 50%;
             height: auto;
         }
 

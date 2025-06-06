@@ -37,6 +37,26 @@ label{
     font-weight: 600;
 }
 
+select {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+    appearance: none; /* removes default arrow for better customization */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px 16px;
+    cursor: pointer;
+}
+
 input[type="text"]{
     width: 100%;
     padding: 10px 14px;
@@ -87,3 +107,4 @@ input[type="submit"]:hover,
 .back-button:hover{
     background-color: #388E3C;
 }
+

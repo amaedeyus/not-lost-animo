@@ -205,7 +205,7 @@
             <select name="status_filter" onchange="this.form.submit()">
                 <option value="">-- Filter by Status --</option>
                 <option value="Lost" <?= (isset($_GET['status_filter']) && $_GET['status_filter'] == 'Lost') ? 'selected' : '' ?>>Lost</option>
-                <option value="Found" <?= (isset($_GET['status_filter']) && $_GET['status_filter'] == 'Found') ? 'selected' : '' ?>>Found</option>
+                <option value="Returned" <?= (isset($_GET['status_filter']) && $_GET['status_filter'] == 'Returned') ? 'selected' : '' ?>>Returned</option>
             </select>
     </form>
 

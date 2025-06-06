@@ -85,6 +85,12 @@ if ($result->num_rows > 0){
                 <input type="hidden" name="item_index" value="<?= $vitemindex ?>">
                 <button type="submit" name="approve">Approve</button>
             </form>
+
+            <form method="post" action="delete-item.php" onsubmit="return confirm('Are you sure you want to delete this item?');" style="display: inline;">
+                <input type="hidden" name="item_index" value="<?= $vitemindex ?>">
+                <input type="hidden" name="redirect" value="<?= htmlspecialchars($_SERVER['HTTP_REFERER']) ?>">
+                <button type="submit" name="delete" class="delete-button">Delete</button>
+            </form>
             <button class="back-button" onclick="window.location.href='staff-pending-item-main.php'">Back</button>
         </div>
     
