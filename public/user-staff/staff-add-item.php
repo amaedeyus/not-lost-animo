@@ -260,9 +260,9 @@
             </div>
 
             <div class="form-group">
-                <label for="txtlostdate">When you found the item:</label>
-                <input type="date" name="lost_date" id="txtlostdate" required>
-            </div>
+    <label for="txtlostdate">When you found the item:</label>
+    <input type="date" name="lost_date" id="txtlostdate" max="<?= date('Y-m-d') ?>" required />
+</div>
 
             <div class="form-group">
                 <label for="txtlostlocation">Where you found the item:</label>
@@ -289,7 +289,7 @@
             </div>
             
             <div class="form-buttons">
-                <input type="submit" value="Save Record" />
+                <input type="submit" value="Submit Item" />
                 <button type="button" onclick="window.location.href='staff-item-main.php'">Back</button>
             </div>
         </form>
@@ -312,49 +312,87 @@
             }
         });
 
-        // Date input validation
-        const dateInput = document.getElementById("txtlostdate");
-        const today = new Date();
-        const minDate = `${today.getFullYear()}-05-15`;
-        dateInput.min = minDate;
 
-        // File input functionality
-        const fileInput = document.getElementById("image_path");
-        const fileButton = document.querySelector(".file-input-button");
-        const fileNameDisplay = document.getElementById("file-name-display");
+    // File input functionality
+    const fileInput = document.getElementById("image_path");
+    const fileButton = document.querySelector(".file-input-button");
+    const fileNameDisplay = document.getElementById("file-name-display");
 
-        fileInput.addEventListener("change", function() {
-            if (fileInput.files.length > 0) {
-                fileNameDisplay.textContent = fileInput.files[0].name;
-            } else {
-                fileNameDisplay.textContent = "No file chosen";
+    fileInput.addEventListener("change", function() {
+        if (fileInput.files.length > 0) {
+            fileNameDisplay.textContent = fileInput.files[0].name;
+        } else {
+            fileNameDisplay.textContent = "No file chosen";
+        }
+    });
+
+    fileButton.addEventListener("click", function() {
+        fileInput.click();
+    });
+
+    // Form validation on submit
+    const form = document.forms['formadd'];
+
+    form.addEventListener('submit', function(event) {
+        // Clear previous error messages if you add them later
+        // Validate Image - required and must be image type
+        if (fileInput.files.length === 0) {
+            alert("Please choose an item image.");
+            fileInput.focus();
+            event.preventDefault();
+            return false;
+        } else {
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/bmp'];
+            const fileType = fileInput.files[0].type;
+            if (!allowedTypes.includes(fileType)) {
+                alert("Please upload a valid image file (jpeg, png, gif, webp, bmp).");
+                fileInput.focus();
+                event.preventDefault();
+                return false;
             }
-        });
-
-        fileButton.addEventListener("click", function() {
-            fileInput.click();
-        });
-
-        // Ad popup functionality
-        window.onload = function() {
-            setTimeout(function() {
-                document.getElementById('adOverlay').style.display = 'block';
-                document.getElementById('adPopup').style.display = 'block';
-            }, 2000); // Show after 2 seconds
         }
 
-        function closeAd() {
-            var video = document.querySelector('.ad-video');
-            if (video) {
-                video.pause();
-                video.currentTime = 0;
-            }
-            document.getElementById('adOverlay').style.display = 'none';
-            document.getElementById('adPopup').style.display = 'none';
+        // Validate Item Name - not empty and not whitespace only
+        const itemName = form['item_name'].value.trim();
+        if (itemName === "") {
+            alert("Please enter the item name.");
+            form['item_name'].focus();
+            event.preventDefault();
+            return false;
         }
 
-        // Close ad when clicking overlay
-        document.getElementById('adOverlay').addEventListener('click', closeAd);
+        // Validate Description - not empty and not whitespace only
+        const description = form['description'].value.trim();
+        if (description === "") {
+            alert("Please enter the item description.");
+            form['description'].focus();
+            event.preventDefault();
+            return false;
+        }
+
+        // Validate Lost Date - not empty, >= minDate
+        const lostDateValue = form['lost_date'].value;
+        if (lostDateValue === "") {
+            alert("Please enter the date when you found the item.");
+            form['lost_date'].focus();
+            event.preventDefault();
+            return false;
+        }
+
+        // Validate Lost Location - must select a value
+        const lostLocation = form['lost_location'].value;
+        if (lostLocation === "") {
+            alert("Please select where you found the item.");
+            form['lost_location'].focus();
+            event.preventDefault();
+            return false;
+        }
+
+        // If all validations pass, form submits normally
+    });
+
+    // Close ad when clicking overlay
+    document.getElementById('adOverlay').addEventListener('click', closeAd);
     </script>
 
     <div class="ad-overlay" id="adOverlay"></div>

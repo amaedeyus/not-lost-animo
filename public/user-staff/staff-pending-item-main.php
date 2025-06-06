@@ -147,56 +147,79 @@
     <script>
         // Toggle Dropdown Menu
         function toggleDropdown() {
-            var dropdownMenu = document.getElementById("dropdownMenu");
-            dropdownMenu.classList.toggle("show");
+        var dropdownMenu = document.getElementById("dropdownMenu");
+        dropdownMenu.classList.toggle("show");
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        var userProfile = document.querySelector('.user-profile');
+        var dropdownMenu = document.getElementById("dropdownMenu");
+        
+        if (!userProfile.contains(event.target)) {
+            dropdownMenu.classList.remove('show');
         }
+    });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            var userProfile = document.querySelector('.user-profile');
-            var dropdownMenu = document.getElementById("dropdownMenu");
-            
-            if (!userProfile.contains(event.target)) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
+    const adUrls = [
+    "https://www.youtube.com/embed/kpHBxLqkikw?autoplay=1&mute=1",
+    "https://www.youtube.com/embed/gQ1b0uaFRjM?autoplay=1&mute=1",
+    "https://www.youtube.com/embed/ZCJTeWsbSio?autoplay=1&mute=1",
+    "https://www.youtube.com/embed/fdxvsyr_X3c?autoplay=1&mute=1",
+    "https://www.youtube.com/embed/Ec0Z1v7jKDQ?autoplay=1&mute=1"
+    ];
 
-        // Ad popup functionality
-        window.onload = function() {
-            setTimeout(function() {
-                document.getElementById('adOverlay').style.display = 'block';
-                document.getElementById('adPopup').style.display = 'block';
-            }, 2000); // Show after 2 seconds
-        }
+   window.onload = function () {
+    let i = sessionStorage.getItem('adViewsLeft');
 
-        function closeAd() {
-            var video = document.querySelector('.ad-video');
-            if (video) {
-                video.pause();
-                video.currentTime = 0;
-            }
-            document.getElementById('adOverlay').style.display = 'none';
-            document.getElementById('adPopup').style.display = 'none';
-        }
+    if (i === null) {
+        i = 10;
+    } else {
+        i = parseInt(i);
+    }
 
-        // Close ad when clicking overlay
-        document.getElementById('adOverlay').addEventListener('click', closeAd);
+    if (i > 0) {
+        setTimeout(function () {
+            const randomIndex = Math.floor(Math.random() * adUrls.length);
+            document.getElementById('adIframe').src = adUrls[randomIndex];
+            document.getElementById('adOverlay').style.display = 'block';
+            document.getElementById('adPopup').style.display = 'block';
+
+            i--;
+            sessionStorage.setItem('adViewsLeft', i);
+        }, 3000);
+    }
+};
+
+    function closeAd() {
+        var iframe = document.getElementById('adIframe');
+        iframe.src = ""; // Clear video source
+        document.getElementById('adOverlay').style.display = 'none';
+        document.getElementById('adPopup').style.display = 'none';
+    }
+
+    document.getElementById('adOverlay').addEventListener('click', closeAd);
     </script>
 
     <div class="ad-overlay" id="adOverlay"></div>
-    <div class="ad-popup" id="adPopup">
-        <div class="ad-header">
-            <h3 class="ad-title">Special Advertisement</h3>
-            <button class="close-ad" onclick="closeAd()">×</button>
-        </div>
-        <div class="ad-content">
-            <video class="ad-video" controls autoplay muted>
-                <source src="../media/ads/cokevid1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p class="ad-description">Enjoy this special message from our sponsor!</p>
-        </div>
+<div class="ad-popup" id="adPopup">
+    <div class="ad-header">
+        <h3 class="ad-title">Special Advertisement</h3>
+        <button class="close-ad" onclick="closeAd()">×</button>
     </div>
+    <div class="ad-content">
+        <iframe 
+            id="adIframe"
+            width="560" 
+            height="315"
+            title="YouTube video player"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+        <p class="ad-description">Enjoy this special message from our sponsor!</p>
+    </div>
+</div>
 
 <div class="content">
 

@@ -12,37 +12,8 @@
     <link rel="stylesheet" href="../css/ads.css?v=<?= time() ?>">
 </head>
 <body>
-    <header>
-        <div style="display: flex; align-items: center; gap: 20px;">
-            <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
-            <form action="" method="get" name="formadd" enctype="multipart/form-data" novalidate>
-                <div class="search-wrapper">
-                    <input type="search" id="txtsearch" name="q" placeholder="Search..." 
-                    value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
-                    <button type="submit"><img src="../media/search.png"></button>
-                </div>
-            </form>
-        </div>
-        
-        <div class="header-container">
-            <button type="button" class="add-button" onclick="window.location.href='staff-pending-item-main.php'">
-                <img src="../media/search.png"> View Pending Submissions
-            </button>
-            <button type="button" class="add-button" onclick="window.location.href='staff-add-item.php'">
-                <img src="../media/add.png"> Submit Lost Item
-            </button>
-            
-            <!-- User Profile and Dropdown -->
-            <div class="user-profile" onclick="toggleDropdown()">
-                <span>☰</span>
-                <div class="dropdown-content" id="dropdownMenu">
-                    <a href="staff-logout.php">Log Out</a>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <style>
+ <style>
         header {
             display: flex;
             align-items: center;
@@ -142,60 +113,204 @@
             align-items: center;
             gap: 10px;
         }
+
+        .intro-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.intro-content {
+    background: #f0fdf4; /* soft light green background */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    text-align: center;
+    margin: 15% auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: #064e3b; /* dark green text */
+    font-family: Arial, sans-serif;
+}
+
+.intro-content h1 {
+    color: #064e3b; /* dark green */
+    font-weight: bold;
+}
+
+.intro-content strong {
+    color: #064e3b;
+}
+
+.intro-content p {
+    color: #15803d; /* medium green for names */
+    margin: 4px 0;
+}
+
+.intro-content button,
+.intro-content .get-started {
+    background-color: #34d399; /* teal/green button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.intro-content button:hover,
+.intro-content .get-started:hover {
+    background-color: #10b981; /* darker teal on hover */
+}
     </style>
 
+    <header>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <img src="../media/logo.png" alt="notlostanimo-logo" class="logo-img">
+            <form action="" method="get" name="formadd" enctype="multipart/form-data" novalidate>
+                <div class="search-wrapper">
+                    <input type="search" id="txtsearch" name="q" placeholder="Search..." 
+                    value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
+                    <button type="submit"><img src="../media/search.png"></button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="header-container">
+            <button type="button" class="add-button" onclick="window.location.href='staff-pending-item-main.php'">
+                <img src="../media/search.png"> View Pending Submissions
+            </button>
+            <button type="button" class="add-button" onclick="window.location.href='staff-add-item.php'">
+                <img src="../media/add.png"> Submit Lost Item
+            </button>
+            
+            <!-- User Profile and Dropdown -->
+            <div class="user-profile" onclick="toggleDropdown()">
+                <span>☰</span>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="staff-logout.php">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+     <div id="introPopup" class="intro-popup">
+    <div class="intro-content">
+        <h2>Welcome to Not Lost Animo!</h2>
+        <p>You may view pending item submissions and update their status.</p>
+        <button onclick="closeIntro()">Alright!</button>
+    </div>
+</div>
+
     <script>
+
+        document.querySelector('a[href="staff-logout.php"]').addEventListener("click", function (e) {
+    // Clear sessionStorage before redirecting
+    sessionStorage.removeItem("introShown");
+});
+
+function closeIntro() {
+    document.getElementById("introPopup").style.display = "none";
+}
+
+
+        window.addEventListener("load", function () {
+    if (!sessionStorage.getItem("introShown")) {
+        document.getElementById("introPopup").style.display = "block";
+        sessionStorage.setItem("introShown", "true");
+    }
+});
         // Toggle Dropdown Menu
         function toggleDropdown() {
-            var dropdownMenu = document.getElementById("dropdownMenu");
-            dropdownMenu.classList.toggle("show");
+        var dropdownMenu = document.getElementById("dropdownMenu");
+        dropdownMenu.classList.toggle("show");
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        var userProfile = document.querySelector('.user-profile');
+        var dropdownMenu = document.getElementById("dropdownMenu");
+        
+        if (!userProfile.contains(event.target)) {
+            dropdownMenu.classList.remove('show');
         }
+    });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            var userProfile = document.querySelector('.user-profile');
-            var dropdownMenu = document.getElementById("dropdownMenu");
-            
-            if (!userProfile.contains(event.target)) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
+    window.addEventListener("load", function () {
+    // Show intro popup once per session
+    if (!sessionStorage.getItem("introShown")) {
+        document.getElementById("introPopup").style.display = "block";
+        sessionStorage.setItem("introShown", "true");
+    }
 
-        // Ad popup functionality
-        window.onload = function() {
-            setTimeout(function() {
-                document.getElementById('adOverlay').style.display = 'block';
-                document.getElementById('adPopup').style.display = 'block';
-            }, 2000); // Show after 2 seconds
-        }
+    // Ad popup logic
+    const adUrls = [
+        "https://www.youtube.com/embed/kpHBxLqkikw?autoplay=1&mute=1",
+        "https://www.youtube.com/embed/gQ1b0uaFRjM?autoplay=1&mute=1",
+        "https://www.youtube.com/embed/ZCJTeWsbSio?autoplay=1&mute=1",
+        "https://www.youtube.com/embed/fdxvsyr_X3c?autoplay=1&mute=1",
+        "https://www.youtube.com/embed/Ec0Z1v7jKDQ?autoplay=1&mute=1"
+    ];
 
-        function closeAd() {
-            var video = document.querySelector('.ad-video');
-            if (video) {
-                video.pause();
-                video.currentTime = 0;
-            }
-            document.getElementById('adOverlay').style.display = 'none';
-            document.getElementById('adPopup').style.display = 'none';
-        }
+    let i = sessionStorage.getItem('adViewsLeft');
 
-        // Close ad when clicking overlay
-        document.getElementById('adOverlay').addEventListener('click', closeAd);
+    if (i === null) {
+        i = 10;
+    } else {
+        i = parseInt(i);
+    }
+
+    if (i > 0) {
+        setTimeout(function () {
+            const randomIndex = Math.floor(Math.random() * adUrls.length);
+            document.getElementById('adIframe').src = adUrls[randomIndex];
+            document.getElementById('adOverlay').style.display = 'block';
+            document.getElementById('adPopup').style.display = 'block';
+
+            i--;
+            sessionStorage.setItem('adViewsLeft', i);
+        }, 3000);
+    }
+});
+
+
+    function closeAd() {
+        var iframe = document.getElementById('adIframe');
+        iframe.src = ""; // Clear video source
+        document.getElementById('adOverlay').style.display = 'none';
+        document.getElementById('adPopup').style.display = 'none';
+    }
+
+    document.getElementById('adOverlay').addEventListener('click', closeAd);
     </script>
 
     <div class="ad-overlay" id="adOverlay"></div>
-    <div class="ad-popup" id="adPopup">
-        <div class="ad-header">
-            <h3 class="ad-title">Special Advertisement</h3>
-            <button class="close-ad" onclick="closeAd()">×</button>
-        </div>
-        <div class="ad-content">
-            <video class="ad-video" controls autoplay muted>
-                <source src="../media/ads/cokevid1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p class="ad-description">Enjoy this special message from our sponsor!</p>
-        </div>
+<div class="ad-popup" id="adPopup">
+    <div class="ad-header">
+        <h3 class="ad-title">Special Advertisement</h3>
+        <button class="close-ad" onclick="closeAd()">×</button>
+    </div>
+    <div class="ad-content">
+        <iframe 
+            id="adIframe"
+            width="560" 
+            height="315"
+            title="YouTube video player"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+        <p class="ad-description">Enjoy this special message from our sponsor!</p>
+    </div>
+</div>
+
+
     </div>
 
 <div class="content">
